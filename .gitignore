@@ -13,3 +13,4 @@ uploads
 .cvsignore
 /tinymce
 /md5.php
+/nbproject

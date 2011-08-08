@@ -65,7 +65,6 @@ $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 ## Labels for Bottons, Headers on Tables, Selections, Link Texts and others
 ##
 // Label A
-
 $LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Actief)'; 
 $LANG['LABEL_ADD_NEW_DEPT'] = 'Voeg nieuwe afdeling toe.';
 $LANG['LABEL_ADMIN_DASHBOARD'] = 'Admin Dashboard';
@@ -300,6 +299,7 @@ $LANG['LABEL_SUBJECT'] = 'Onderwerp';
 $LANG['LABEL_SUBMIT'] = 'Dien in';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Dien ticket in';
 $LANG['LABEL_SYSTEM_DEFAULT_TEMPLATE'] = 'Standaard template';
+$LANG['LABEL_SYSTEM_LOGS'] = 'Systeem logs';
 $LANG['LABEL_SYSTEM_PREFERENCES_AND_SETTINGS'] = 'Systeemvoorkeuren -en instellingen';
 $LANG['LABEL_SYSTEM_SETTINGS'] = 'Instellingen';
 // Label T
