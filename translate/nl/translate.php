@@ -300,6 +300,16 @@ $LANG['LABEL_SUBMIT'] = 'Dien in';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Dien ticket in';
 $LANG['LABEL_SYSTEM_DEFAULT_TEMPLATE'] = 'Standaard template';
 $LANG['LABEL_SYSTEM_LOGS'] = 'Systeem logs';
+$LANG['LABEL_SYSTEM_LOGS_ALL'] = 'Alles';
+$LANG['LABEL_SYSTEM_LOGS_DATESPAN'] = 'Datum';
+$LANG['LABEL_SYSTEM_LOGS_DEBUG'] = 'Debug';
+$LANG['LABEL_SYSTEM_LOGS_ERRORS'] = 'Fouten';
+$LANG['LABEL_SYSTEM_LOGS_FROM'] = 'Van';
+$LANG['LABEL_SYSTEM_LOGS_GO'] = 'Ga';
+$LANG['LABEL_SYSTEM_LOGS_NO_RESULTS'] = 'Geen logs';
+$LANG['LABEL_SYSTEM_LOGS_TO'] = 'tot';
+$LANG['LABEL_SYSTEM_LOGS_TYPE'] = 'Type';
+$LANG['LABEL_SYSTEM_LOGS_WARNINGS'] = 'Waarschuwingen';
 $LANG['LABEL_SYSTEM_PREFERENCES_AND_SETTINGS'] = 'Systeemvoorkeuren -en instellingen';
 $LANG['LABEL_SYSTEM_SETTINGS'] = 'Instellingen';
 // Label T
