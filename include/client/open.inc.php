@@ -1,6 +1,7 @@
 <?php
 if(!defined('OSTCLIENTINC')) die('Kwaheri rafiki!'); //Say bye to our friend..
-
+$subx = null;
+$subx = $_GET['asunto'];
 $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the post data
 ?>
 <div>
@@ -70,7 +71,7 @@ $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the po
     <tr>
         <th><?php echo $trl->translate('LABEL_SUBJECT')?>:</th>
         <td>
-            <input type="text" name="subject" size="35" value="<?php echo $info['subject']?>">
+            <input type="text" name="subject" size="35" value="<?php echo $subx ?><?php echo $info['subject']?>">
             &nbsp;<font class="error">*&nbsp;<?php echo $errors['subject']?></font>
         </td>
     </tr>
