@@ -121,7 +121,7 @@ class MailFetcher {
     //Generic decoder - mirrors imap_utf8
     function mime_decode($text) {
         
-        $a = imap_mime_header_decode($text);
+        $a = imap_utf8($text);
         $str = '';
         foreach ($a as $k => $part)
             $str.= $part->text;
