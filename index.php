@@ -40,8 +40,8 @@ require(CLIENTINC_DIR.'header.inc.php');
 </div>
 <div class="rcol">
   <img src="./images/ticket_status_icon.jpg" width="48" height="48" align="left" style="padding-bottom:150px;">
-  <h3><?= $trl->translate('TITLE_OPEN_PREVIUS_TICKET'); ?></h3>
-  <?= $trl->translate('TEXT_OPEN_PREVIUS_TICKET'); ?>
+  <h3><?= $trl->translate('TITLE_OPEN_PREVIOUS_TICKET'); ?></h3>
+  <?= $trl->translate('TEXT_OPEN_PREVIOUS_TICKET'); ?>
   <br /><br />
   <form class="status_form" action="login.php" method="post">
     <fieldset>
