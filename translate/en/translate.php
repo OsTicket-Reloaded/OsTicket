@@ -65,7 +65,7 @@ $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 ## Labels for Bottons, Headers on Tables, Selections, Link Texts and others
 ##
 // Label A
-$LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Active)'; 
+$LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Active)';
 $LANG['LABEL_ADD_NEW_DEPT'] = 'Add New Dept.';
 $LANG['LABEL_ADMIN_DASHBOARD'] = 'Admin Dashboard';
 $LANG['LABEL_ADMIN_PANEL'] = 'Admin Panel';
@@ -156,17 +156,17 @@ $LANG['LABEL_HELPDESK_PURGE_NONE_DISABLE'] = 'None (Disable)';
 $LANG['LABEL_HELPDESK_PURGE_LOGS_AFTER'] = 'Purge logs after';
 $LANG['LABEL_HELPDESK_DEFAULT_PAGE_SIZE'] = 'Default Page Size';
 $LANG['LABEL_HELPDESK_SELECT_DEFAULT_DEPARTMENT'] = 'Select Default Dept';
-$LANG['LABEL_HELPDESK_SELECT_DEFAULT_TEMPLATE'] = 'Select Default Template'; 
+$LANG['LABEL_HELPDESK_SELECT_DEFAULT_TEMPLATE'] = 'Select Default Template';
 $LANG['LABEL_HELPDESK_STAFF_EXCESSIVE_LOGINS'] = 'Staff Excessive Logins';
 $LANG['LABEL_HELPDESK_STAFF_SESSION_TIMEOUT'] = 'Staff Session Timeout';
 $LANG['LABEL_HELPDESK_STATUS'] = 'Helpdesk Status';
-$LANG['LABEL_HELPDESK_SYSTEM_LOG_LEVEL'] = 'System Log Level'; 
+$LANG['LABEL_HELPDESK_SYSTEM_LOG_LEVEL'] = 'System Log Level';
 $LANG['LABEL_HELPDESK_URL'] = 'Helpdesk URL';
 // Label I
 $LANG['LABEL_ISSUE_SUMMARY'] = 'Issue Summary';
-$LANG['LABEL_INTERNAL_NOTE'] = 'Interne Notitie'; //newticket.inc 
-$LANG['LABEL_INTERNAL_NOTES'] = 'Interne Notities'; 
-$LANG['LABEL_IP_ADDRESS'] = 'Ip Adres'; 
+$LANG['LABEL_INTERNAL_NOTE'] = 'Interne Notitie'; //newticket.inc
+$LANG['LABEL_INTERNAL_NOTES'] = 'Interne Notities';
+$LANG['LABEL_IP_ADDRESS'] = 'Ip Adres';
 
 // Label J
 
@@ -347,7 +347,7 @@ $LANG['TEXT_INVALID_FILE_TYPE'] = 'Invalid file type [ {0} ]';
 // TEXT K
 // TEXT L
 $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET']='To view the status of a ticket, provide us with your login details below.<br/>'.
-        'If this is your first time contacting us or you\'ve lost the ticket ID, please <a href="open.php">click here</a> to open a new ticket.';	
+        'If this is your first time contacting us or you\'ve lost the ticket ID, please <a href="open.php">click here</a> to open a new ticket.';
 $LANG['TEXT_LOG_OUT'] = 'Log Out';
 // TEXT M
 $LANG['TEXT_MY_TICKETS'] = 'My Tickets';
@@ -360,7 +360,7 @@ $LANG['TEXT_NEW_TICKET_AUTO_RESPONSE'] = 'An email with the ticket number has be
 $LANG['TEXT_NO_TICKETS_FOUND']='NO tickets found.';
 // TEXT O
 $LANG['TEXT_OPEN_NEW_TICKET'] = 'Open new Ticket';
-$LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Check status of previously opened ticket. we provide archives and history of all your support requests complete with responses.';
+$LANG['TEXT_OPEN_PREVIOUS_TICKET'] = 'Check status of previously opened ticket. we provide archives and history of all your support requests complete with responses.';
 $LANG['TEXT_OPEN_TICKETS'] = 'Open Tickets';
 $LANG['TEXT_OPEN'] = 'Open';
 $LANG['TEXT_OVERDUE_STATS'] = 'Overdue ({0})';
@@ -451,6 +451,6 @@ $LANG['TITLE_BOX_NEW_TICKET'] = 'New Ticket';
 $LANG['TITLE_BAR_OFFLINE'] = 'Support Ticket System';
 $LANG['TITLE_MY_PREFERENCES'] = 'My Preferences';
 $LANG['TITLE_OFFLINE'] = 'Support Ticket System Offline';
-$LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Open Previus Ticket';
+$LANG['TITLE_OPEN_PREVIOUS_TICKET'] = 'Open Previous Ticket';
 $LANG['TITLE_CLOSED_TICKETS'] = 'Closed Tickets';
 ?>
