@@ -449,4 +449,3 @@ $LANG['TITLE_OFFLINE'] = 'Système de ticket hors-ligne';
 $LANG['TITLE_OPEN_PREVIOUS_TICKET'] = 'Ouvrir un ticket précédent';
 $LANG['TITLE_CLOSED_TICKETS'] = 'Tickets fermés';
 ?>
-
