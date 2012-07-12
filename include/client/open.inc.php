@@ -1,7 +1,7 @@
 <?php
 if(!defined('OSTCLIENTINC')) die('Kwaheri rafiki!'); //Say bye to our friend..
 
-$info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the post data
+$info=($_POST && $errors)?Format::input($_POST):($_GET ? Format::input($_GET) : array()); //on error...use the post data or use get data if available to prefill fields
 ?>
 <div>
     <?if($errors['err']) {?>
@@ -58,7 +58,7 @@ $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the po
                 <?
                  $services= db_query('SELECT topic_id,topic FROM '.TOPIC_TABLE.' WHERE isactive=1 ORDER BY topic');
                  while (list($topicId,$topic) = db_fetch_row($services)){
-                    $selected = ($info['topicId']==$topicId)?'selected':''; ?>
+                    $selected = ($info['topicId']==$topicId || $info['topic']==$topic)?'selected':''; ?>
                     <option value="<?php echo $topicId?>"<?php echo $selected?>><?php echo $topic?></option>
                 <?
                  }?>

@@ -109,7 +109,14 @@ class Translator
 	{
 		$language = $this->getLanguage();
 
-		require (TRANSLATE_DIR.$language.'/translate.php');
+		if (is_file(TRANSLATE_DIR.$language.'/translate.php'))
+		{
+			require (TRANSLATE_DIR.$language.'/translate.php');
+		}
+		else
+		{
+			require (TRANSLATE_DIR.'en/translate.php');
+		}
 
 		$this->LANG = $LANG;
 
