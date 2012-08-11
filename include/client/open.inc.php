@@ -4,13 +4,13 @@ if(!defined('OSTCLIENTINC')) die('Kwaheri rafiki!'); //Say bye to our friend..
 $info=($_POST && $errors)?Format::input($_POST):($_GET ? Format::input($_GET) : array()); //on error...use the post data or use get data if available to prefill fields
 ?>
 <div>
-    <?if($errors['err']) {?>
+    <?php if($errors['err']) {?>
         <p align="center" id="errormessage"><?php echo $errors['err']?></p>
-    <?}elseif($msg) {?>
+    <?php }elseif($msg) {?>
         <p align="center" id="infomessage"><?php echo $msg?></p>
-    <?}elseif($warn) {?>
+    <?php }elseif($warn) {?>
         <p id="warnmessage"><?php echo $warn?></p>
-    <?}?>
+    <?php }?>
 </div>
 <div><?php echo $trl->translate('TEXT_PLEASE_FILL_FORM_NEW_TICKET')?></div><br>
 <form action="open.php" method="POST" enctype="multipart/form-data">
@@ -18,29 +18,29 @@ $info=($_POST && $errors)?Format::input($_POST):($_GET ? Format::input($_GET) : 
     <tr>
         <th width="20%"><?php echo $trl->translate('LABEL_FULL_NAME')?>:</th>
         <td>
-            <?if ($thisclient && ($name=$thisclient->getName())) {
+            <?php if ($thisclient && ($name=$thisclient->getName())) {
                 ?>
                 <input type="hidden" name="name" value="<?php echo $name?>"><?php echo $name?>
-            <?}else {?>
+            <?php }else {?>
                 <input type="text" name="name" size="25" value="<?php echo $info['name']?>">
-	        <?}?>
+	        <?php }?>
             &nbsp;<font class="error">*&nbsp;<?php echo $errors['name']?></font>
 	        </td>
     </tr>
     <tr>
         <th nowrap ><?php echo $trl->translate('LABEL_EMAIL_ADDRESS')?>:</th>
         <td>
-            <?if ($thisclient && ($email=$thisclient->getEmail())) {
+            <?php if ($thisclient && ($email=$thisclient->getEmail())) {
                 ?>
                 <input type="hidden" name="email" size="25" value="<?php echo $email?>"><?php echo $email?>
-            <?}else {?>             
+            <?php }else {?>             
                 <input type="text" name="email" size="25" value="<?php echo $info['email']?>">
-            <?}?>
+            <?php }?>
             &nbsp;<font class="error">*&nbsp;<?php echo $errors['email']?></font>
-            <?if ($thisclient && ($name=$thisclient->getName())) { ?>
+            <?php if ($thisclient && ($name=$thisclient->getName())) { ?>
             	<br>
 				<A href="logout.php" ><?php echo $trl->translate('TEXT_NOT_THIS_USER')?></A>
-			<?}?>
+			<?php }?>
         </td>
     </tr>
     <tr>
@@ -55,12 +55,12 @@ $info=($_POST && $errors)?Format::input($_POST):($_GET ? Format::input($_GET) : 
         <td>
             <select name="topicId">
                 <option value="" selected ><?php $trl->_('LABEL_SELECT_ONE_TOPIC') ?></option>
-                <?
+                <?php 
                  $services= db_query('SELECT topic_id,topic FROM '.TOPIC_TABLE.' WHERE isactive=1 ORDER BY topic');
                  while (list($topicId,$topic) = db_fetch_row($services)){
                     $selected = ($info['topicId']==$topicId || $info['topic']==$topic)?'selected':''; ?>
                     <option value="<?php echo $topicId?>"<?php echo $selected?>><?php echo $topic?></option>
-                <?
+                <?php 
                  }?>
                 <?php /*<option value="0" ><?php echo $trl->translate('TEXT_GENERAL_INQUIRY');?></option> */ ?>
             </select>
@@ -77,10 +77,10 @@ $info=($_POST && $errors)?Format::input($_POST):($_GET ? Format::input($_GET) : 
     <tr>
         <th valign="top"><?php echo $trl->translate('LABEL_MESSAGE')?>:</th>
         <td>
-            <? if($errors['message']) {?> <font class="error"><b>&nbsp;<?php echo $errors['message']?></b></font><br/><?}?>
+            <?php  if($errors['message']) {?> <font class="error"><b>&nbsp;<?php echo $errors['message']?></b></font><br/><?php }?>
             <textarea name="message" cols="35" rows="8" wrap="soft" style="width:85%"><?php echo $info['message']?></textarea></td>
     </tr>
-    <?
+    <?php 
     if($cfg->allowPriorityChange() ) {
       $sql='SELECT priority_id,priority_desc FROM '.TICKET_PRIORITY_TABLE.' WHERE ispublic=1 ORDER BY priority_urgency DESC';
       if(($priorities=db_query($sql)) && db_num_rows($priorities)){ ?>
@@ -88,18 +88,18 @@ $info=($_POST && $errors)?Format::input($_POST):($_GET ? Format::input($_GET) : 
         <td><?php echo $trl->translate('LABEL_PRIORITY')?>:</td>
         <td>
             <select name="pri">
-              <?
+              <?php 
                 $info['pri']=$info['pri']?$info['pri']:$cfg->getDefaultPriorityId(); //use system's default priority.
                 while($row=db_fetch_array($priorities)){ ?>
                     <option value="<?php echo $row['priority_id']?>" <?php echo $info['pri']==$row['priority_id']?'selected':''?> ><?php echo $row['priority_desc']?></option>
-              <?}?>
+              <?php }?>
             </select>
         </td>
        </tr>
-    <? }
+    <?php  }
     }?>
 
-    <?if(($cfg->allowOnlineAttachments() && !$cfg->allowAttachmentsOnlogin())  
+    <?php if(($cfg->allowOnlineAttachments() && !$cfg->allowAttachmentsOnlogin())  
                 || ($cfg->allowAttachmentsOnlogin() && ($thisclient && $thisclient->isValid()))){
         
         ?>
@@ -109,8 +109,8 @@ $info=($_POST && $errors)?Format::input($_POST):($_GET ? Format::input($_GET) : 
             <input type="file" name="attachment"><font class="error">&nbsp;<?php echo $errors['attachment']?></font>
         </td>
     </tr>
-    <?}?>
-    <?if($cfg && $cfg->enableCaptcha() && (!$thisclient || !$thisclient->isValid())) {
+    <?php }?>
+    <?php if($cfg && $cfg->enableCaptcha() && (!$thisclient || !$thisclient->isValid())) {
         if($_POST && $errors && !$errors['captcha'])
             $errors['captcha']='Please re-enter the text again';
         ?>
@@ -121,7 +121,7 @@ $info=($_POST && $errors)?Format::input($_POST):($_GET ? Format::input($_GET) : 
                 <font class="error">&nbsp;<?php echo $errors['captcha']?></font>
         </td>
     </tr>
-    <?}?>
+    <?php }?>
     <tr height=2px><td align="left" colspan=2 >&nbsp;</td></tr>
     <tr>
         <td></td>

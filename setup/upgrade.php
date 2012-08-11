@@ -48,9 +48,6 @@ if(!strcasecmp($cfg->getVersion(),VERSION)) {
 }elseif((double)phpversion()<4.3){ //Old PHP installation
     $errors['err']='PHP installation seriously out of date';
     $inc='php.inc.php';
-}elseif(!ini_get('short_open_tag')) {
-    $errors['err']='Short open tag disabled! - osTicket requires it turned on.';
-    $inc='shortopentag.inc.php';
 }elseif($_POST && !$errors){
     $step=(!strcasecmp($cfg->getVersion(),'1.6 RC5'))?2:1; //gods help us!
     //die("Step #$step");
@@ -220,23 +217,23 @@ $title=sprintf('osTicket upgrade wizard v %s','1.6 ST (stable)');
 <div id="container">
     <div id="header">
         <a id="logo" href="#" title="osTicket"><img src="images/ostlogo.jpg" width="188" height="72" alt="osTicket Upgrade Wizard"></a>
-        <p id="info"><?=$info?></p>
+        <p id="info"><?php echo $info?></p>
     </div>
     <div id="nav">
         <ul id="sub_nav">
-            <li><?=$title?></li>
+            <li><?php echo $title?></li>
         </ul>
     </div>
     <div class="clear"></div>
     <div id="content" width="100%" height="100%">
        <div>
-            <?if($errors['err']) {?>
-                <p align="center" id="errormessage"><?=$errors['err']?></p>
-            <?}elseif($msg) {?>
-                <p align="center" id="infomessage"><?=$msg?></p>
-            <?}elseif($warn) {?>
-                <p align="center" id="warnmessage"><?=$warn?></p>
-            <?}?>
+            <?php if($errors['err']) {?>
+                <p align="center" id="errormessage"><?php echo $errors['err']?></p>
+            <?php }elseif($msg) {?>
+                <p align="center" id="infomessage"><?php echo $msg?></p>
+            <?php }elseif($warn) {?>
+                <p align="center" id="warnmessage"><?php echo $warn?></p>
+            <?php }?>
         </div>
         <div style="padding:0 3px 5px 3px;">
         <?php
@@ -247,7 +244,7 @@ $title=sprintf('osTicket upgrade wizard v %s','1.6 ST (stable)');
         ?>
         </div>
     </div>
-    <div id="footer">Copyright &copy; <?=date('Y')?>&nbsp;osTicket-reloaded.com. &nbsp;All Rights Reserved.</div>
+    <div id="footer">Copyright &copy; <?php echo date('Y')?>&nbsp;osTicket-reloaded.com. &nbsp;All Rights Reserved.</div>
 </div>
 </body>
 </html>

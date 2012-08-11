@@ -66,22 +66,22 @@ $results_type=($status)?ucfirst($status).' Tickets':' All Tickets';
 $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
 ?>
 <div>
-    <?if($errors['err']) {?>
-        <p align="center" id="errormessage"><?=$errors['err']?></p>
-    <?}elseif($msg) {?>
-        <p align="center" id="infomessage"><?=$msg?></p>
-    <?}elseif($warn) {?>
-        <p id="warnmessage"><?=$warn?></p>
-    <?}?>
+    <?php if($errors['err']) {?>
+        <p align="center" id="errormessage"><?php echo $errors['err']?></p>
+    <?php }elseif($msg) {?>
+        <p align="center" id="infomessage"><?php echo $msg?></p>
+    <?php }elseif($warn) {?>
+        <p id="warnmessage"><?php echo $warn?></p>
+    <?php }?>
 </div>
 <div style="margin: 10px 0 60px 0;">
  <table width="100%" border="0" cellspacing=0 cellpadding=0 align="center">
     <tr>
-        <td width="60%" class="msg"><?=$showing?>&nbsp;&nbsp;<?=$results_type?></td>
+        <td width="60%" class="msg"><?php echo $showing?>&nbsp;&nbsp;<?php echo $results_type?></td>
         <td nowrap >
-            <a href="view.php?status=open"><img src="images/view_open_btn.gif" alt="<?= $trl->translate('TEXT_VIEW_OPEN')?>" border=0></a>            
-            <a href="view.php?status=closed"><img src="images/view_closed_btn.gif" alt="<?= $trl->translate('TEXT_VIEW_CLOSED')?>" border=0></a>            
-            <a href=""><img src="<?php tei('IMAGE_STAFF_REFRESH')?>" alt="<?= $trl->translate('TEXT_REFRESH')?>" border=0></a>
+            <a href="view.php?status=open"><img src="images/view_open_btn.gif" alt="<?php echo  $trl->translate('TEXT_VIEW_OPEN')?>" border=0></a>            
+            <a href="view.php?status=closed"><img src="images/view_closed_btn.gif" alt="<?php echo  $trl->translate('TEXT_VIEW_CLOSED')?>" border=0></a>            
+            <a href=""><img src="<?php tei('IMAGE_STAFF_REFRESH')?>" alt="<?php echo  $trl->translate('TEXT_REFRESH')?>" border=0></a>
         </td>
     </tr>
  </table>
@@ -90,16 +90,16 @@ $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
      <table border="0" cellspacing=0 cellpadding=2 class="tgrid" align="center">
         <tr>
 	        <th width="70" nowrap>
-                <a href="view.php?sort=ID&order=<?=$negorder?><?=$qstr?>" title="<?= $trl->translate('TEXT_SORT_BY_TICKET_ID')?> <?=$negorder?>"><?= $trl->translate('LABEL_TICKET_NUMBER')?></a></th>
+                <a href="view.php?sort=ID&order=<?php echo $negorder?><?php echo $qstr?>" title="<?php echo  $trl->translate('TEXT_SORT_BY_TICKET_ID')?> <?php echo $negorder?>"><?php echo  $trl->translate('LABEL_TICKET_NUMBER')?></a></th>
 	        <th width="100">
-                <a href="view.php?sort=date&order=<?=$negorder?><?=$qstr?>" title="<?= $trl->translate('TEXT_SORT_BY_DATE')?> <?=$negorder?>"><?= $trl->translate('LABEL_CREATE_DATE')?></a></th>
-            <th width="60"><?= $trl->translate('LABEL_TICKET_STATUS')?></th>
-            <th width="240"><?= $trl->translate('LABEL_SUBJECT')?></th>
+                <a href="view.php?sort=date&order=<?php echo $negorder?><?php echo $qstr?>" title="<?php echo  $trl->translate('TEXT_SORT_BY_DATE')?> <?php echo $negorder?>"><?php echo  $trl->translate('LABEL_CREATE_DATE')?></a></th>
+            <th width="60"><?php echo  $trl->translate('LABEL_TICKET_STATUS')?></th>
+            <th width="240"><?php echo  $trl->translate('LABEL_SUBJECT')?></th>
             <th width="150">
-                <a href="view.php?sort=dept&order=<?=$negorder?><?=$qstr?>" title="<?= $trl->translate('TEXT_SORT_BY_DEPARTMENT')?> <?=$negorder?>"><?= $trl->translate('LABEL_DEPARTMENT')?></a></th>
-            <th width="150"><?= $trl->translate('LABEL_EMAIL')?></th>
+                <a href="view.php?sort=dept&order=<?php echo $negorder?><?php echo $qstr?>" title="<?php echo  $trl->translate('TEXT_SORT_BY_DEPARTMENT')?> <?php echo $negorder?>"><?php echo  $trl->translate('LABEL_DEPARTMENT')?></a></th>
+            <th width="150"><?php echo  $trl->translate('LABEL_EMAIL')?></th>
         </tr>
-        <?
+        <?php 
         $class = "row1";
         $total=0;
         if($tickets_res && ($num=db_num_rows($tickets_res))):
@@ -113,31 +113,31 @@ $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
                     $ticketID="<b>$ticketID</b>";
                 }
                 ?>
-            <tr class="<?=$class?> " id="<?=$row['ticketID']?>">
-                <td align="center" title="<?=$row['email']?>" nowrap>
-                    <a class="Icon <?=strtolower($row['source'])?>Ticket" title="<?=$row['email']?>" href="view.php?id=<?=$row['ticketID']?>">
-                        <?=$ticketID?></a></td>
-                <td nowrap>&nbsp;<?=Format::db_date($row['created'])?></td>
-                <td>&nbsp;<?=ucfirst($row['status'])?></td>
-                <td>&nbsp;<a href="view.php?id=<?=$row['ticketID']?>"><?=$subject?></a>
-                    &nbsp;<?=$row['attachments']?"<span class='Icon file'>&nbsp;</span>":''?></td>
-                <td nowrap>&nbsp;<?=Format::truncate($dept,30)?></td>
-                <td>&nbsp;<?=Format::truncate($row['email'],40)?></td>
+            <tr class="<?php echo $class?> " id="<?php echo $row['ticketID']?>">
+                <td align="center" title="<?php echo $row['email']?>" nowrap>
+                    <a class="Icon <?php echo strtolower($row['source'])?>Ticket" title="<?php echo $row['email']?>" href="view.php?id=<?php echo $row['ticketID']?>">
+                        <?php echo $ticketID?></a></td>
+                <td nowrap>&nbsp;<?php echo Format::db_date($row['created'])?></td>
+                <td>&nbsp;<?php echo ucfirst($row['status'])?></td>
+                <td>&nbsp;<a href="view.php?id=<?php echo $row['ticketID']?>"><?php echo $subject?></a>
+                    &nbsp;<?php echo $row['attachments']?"<span class='Icon file'>&nbsp;</span>":''?></td>
+                <td nowrap>&nbsp;<?php echo Format::truncate($dept,30)?></td>
+                <td>&nbsp;<?php echo Format::truncate($row['email'],40)?></td>
             </tr>
-            <?
+            <?php 
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: //not tickets found!! ?> 
-            <tr class="<?=$class?>"><td colspan=7><b><?= $trl->translate('TEXT_NO_TICKETS_FOUND')?></b></td></tr>
-        <?
+            <tr class="<?php echo $class?>"><td colspan=7><b><?php echo  $trl->translate('TEXT_NO_TICKETS_FOUND')?></b></td></tr>
+        <?php 
         endif; ?>
      </table>
     </td></tr>
     <tr><td>
-    <?
+    <?php 
     if($num>0 && $pageNav->getNumPages()>1){ //if we actually had any tickets returned?>
-     <tr><td style="text-align:left;padding-left:20px">page:<?=$pageNav->getPageLinks()?>&nbsp;</td></tr>
-    <?}?>
+     <tr><td style="text-align:left;padding-left:20px">page:<?php echo $pageNav->getPageLinks()?>&nbsp;</td></tr>
+    <?php }?>
  </table>
 </div>
-<?
+<?php 

@@ -5,7 +5,7 @@ Please take a minute to cleanup!
 <ul>
     <li><strong>Delete setup directory</strong><br>
      After verifying that the upgrade completed correctly please delete setup folder.</li>
-    <?if(ini_get('register_globals')) { ?>
+    <?php if(ini_get('register_globals')) { ?>
      <li><strong>Disable register globals (optional)</strong><br>
      If you don't have a good reason why register globals is enabled then please disable it.
      </li>

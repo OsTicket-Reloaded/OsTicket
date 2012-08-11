@@ -4,7 +4,7 @@ if(!$thisuser || !$thisuser->isadmin()) die($trl->translate("TEXT_ACCESS_DENIED"
 
 $info=($_POST && $errors)?Format::input($_POST):Format::htmlchars($cfg->getSMTPInfo());
 ?>
-<div class="msg"><?=$title?></div>
+<div class="msg"><?php echo $title?></div>
 <table width="98%" border="0" cellspacing=0 cellpadding=0>
 <form action="admin.php?t=smtp" method="post">
  <input type="hidden" name="do" value="save">
@@ -18,49 +18,49 @@ $info=($_POST && $errors)?Format::input($_POST):Format::htmlchars($cfg->getSMTPI
             <b>Please be patient, the system will try to login to SMTP server to validate the entered login info.</b></td></tr>
         <tr><th>Enable SMTP</th>
             <td>
-                <input type="radio" name="isenabled"  value="1"   <?=$info['isenabled']?'checked':''?> /><b>Yes</b>
-                <input type="radio" name="isenabled"  value="0"   <?=!$info['isenabled']?'checked':''?> />No
-                &nbsp;<font class="error">&nbsp;<?=$errors['isenabled']?></font>
+                <input type="radio" name="isenabled"  value="1"   <?php echo $info['isenabled']?'checked':''?> /><b>Yes</b>
+                <input type="radio" name="isenabled"  value="0"   <?php echo !$info['isenabled']?'checked':''?> />No
+                &nbsp;<font class="error">&nbsp;<?php echo $errors['isenabled']?></font>
             </td>
         </tr>
         <tr><th>SMTP Host</th>
-            <td><input type="text" name="host" size=35 value="<?=$info['host']?>">
-                &nbsp;<font class="error">*&nbsp;<?=$errors['host']?></font>
+            <td><input type="text" name="host" size=35 value="<?php echo $info['host']?>">
+                &nbsp;<font class="error">*&nbsp;<?php echo $errors['host']?></font>
             </td>
         </tr>
         <tr><th>SMTP Port</th>
-            <td><input type="text" name="port" size=6 value="<?=$info['port']?>">
-                &nbsp;<font class="error">*&nbsp;<?=$errors['port']?></font>
+            <td><input type="text" name="port" size=6 value="<?php echo $info['port']?>">
+                &nbsp;<font class="error">*&nbsp;<?php echo $errors['port']?></font>
             </td>
         </tr>
         <tr><th>Encryption</th>
             <td>
                  <input type="radio" name="issecure"  value="0"  
-                    <?=!$info['issecure']?'checked':''?> />None
+                    <?php echo !$info['issecure']?'checked':''?> />None
                  <input type="radio" name="issecure"  value="1"   
-                    <?=$info['issecure']?'checked':''?> />TLS (secure)
-                <font class="error">&nbsp;<?=$errors['issecure']?></font>
+                    <?php echo $info['issecure']?'checked':''?> />TLS (secure)
+                <font class="error">&nbsp;<?php echo $errors['issecure']?></font>
             </td>
         </tr>
-        <tr><th><?=$trl->translate('LABEL_USERNAME') ?></th>
-            <td class="mainTableAlt"><input type="text" name="userid" size=35 value="<?=$info['userid']?>" autocomplete='off' >
-                &nbsp;<font class="error">*&nbsp;<?=$errors['userid']?></font>
+        <tr><th><?php echo $trl->translate('LABEL_USERNAME') ?></th>
+            <td class="mainTableAlt"><input type="text" name="userid" size=35 value="<?php echo $info['userid']?>" autocomplete='off' >
+                &nbsp;<font class="error">*&nbsp;<?php echo $errors['userid']?></font>
             </td>
         </tr>
-        <tr><th><?=$trl->translate('LABEL_PASSWORD') ?></th>
-            <td><input type="password" name="userpass" size=35 value="<?=$info['userpass']?>" autocomplete='off'>
-                &nbsp;<font class="error">*&nbsp;<?=$errors['userpass']?></font>
+        <tr><th><?php echo $trl->translate('LABEL_PASSWORD') ?></th>
+            <td><input type="password" name="userpass" size=35 value="<?php echo $info['userpass']?>" autocomplete='off'>
+                &nbsp;<font class="error">*&nbsp;<?php echo $errors['userpass']?></font>
             </td>
         </tr>
         <tr><th>Email Address</th>
             <td>
-                <input type="text" name="fromaddress" size=30 value="<?=$info['fromaddress']?>">
-                    &nbsp;<font class="error">*&nbsp;<?=$errors['fromaddress']?></font>
+                <input type="text" name="fromaddress" size=30 value="<?php echo $info['fromaddress']?>">
+                    &nbsp;<font class="error">*&nbsp;<?php echo $errors['fromaddress']?></font>
             </td>
         </tr>
         <tr><th>Email Name:</th>
             <td>
-                <input type="text" name="fromname" size=30 value="<?=$info['fromname']?>">&nbsp;<font class="error">&nbsp;<?=$errors['fromname']?></font>
+                <input type="text" name="fromname" size=30 value="<?php echo $info['fromname']?>">&nbsp;<font class="error">&nbsp;<?php echo $errors['fromname']?></font>
                 &nbsp;&nbsp;(<i>Optional email's FROM name.</i>)
             </td>
         </tr>

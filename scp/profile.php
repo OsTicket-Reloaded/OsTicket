@@ -164,17 +164,17 @@ if($thisuser->forcePasswdChange()){
 require_once(STAFFINC_DIR.'header.inc.php');
 ?>
 <div>
-    <?if($errors['err']) {?>
-        <p align="center" id="errormessage"><?=$errors['err']?></p>
-    <?}elseif($msg) {?>
-        <p align="center" id="infomessage"><?=$msg?></p>
-    <?}elseif($warn) {?>
-        <p align="center" id="warnmessage"><?=$warn?></p>
-    <?}?>
+    <?php if($errors['err']) {?>
+        <p align="center" id="errormessage"><?php echo $errors['err']?></p>
+    <?php }elseif($msg) {?>
+        <p align="center" id="infomessage"><?php echo $msg?></p>
+    <?php }elseif($warn) {?>
+        <p align="center" id="warnmessage"><?php echo $warn?></p>
+    <?php }?>
 </div>
 <div>
-   <? require(STAFFINC_DIR.$inc);  ?>
+   <?php  require(STAFFINC_DIR.$inc);  ?>
 </div>
-<?
+<?php 
 require_once(STAFFINC_DIR.'footer.inc.php');
 ?>

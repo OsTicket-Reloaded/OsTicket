@@ -23,7 +23,7 @@ $services=db_query($sql.' ORDER BY topic');
             <th>Priority</th>
 	        <th>Last Updated</th>
         </tr>
-        <?
+        <?php 
         $class = 'row1';
         $total=0;
         $ids=($errors && is_array($_POST['tids']))?$_POST['tids']:null;
@@ -35,26 +35,26 @@ $services=db_query($sql.' ORDER BY topic');
                     $sel=true;
                 }
                 ?>
-            <tr class="<?=$class?>" id="<?=$row['topic_id']?>">
+            <tr class="<?php echo $class?>" id="<?php echo $row['topic_id']?>">
                 <td width=7px>
-                 <input type="checkbox" name="tids[]" value="<?=$row['topic_id']?>" <?=$sel?'checked':''?>  onClick="highLight(this.value,this.checked);">
-                <td><a href="admin.php?t=topics&id=<?=$row['topic_id']?>"><?=Format::htmlchars(Format::truncate($row['topic'],30))?></a></td>
-                <td><?=$row['isactive']?'Active':'<b>Disabled</b>'?></td>
-                <td>&nbsp;&nbsp;<?=$row['noautoresp']?'No':'<b>Yes</b>'?></td>
-                <td><a href="admin.php?t=dept&id=<?=$row['dept_id']?>"><?=$row['dept_name']?></a></td>
-                <td><?=$row['priority_desc']?></td>
-                <td><?=Format::db_datetime($row['updated'])?></td>
+                 <input type="checkbox" name="tids[]" value="<?php echo $row['topic_id']?>" <?php echo $sel?'checked':''?>  onClick="highLight(this.value,this.checked);">
+                <td><a href="admin.php?t=topics&id=<?php echo $row['topic_id']?>"><?php echo Format::htmlchars(Format::truncate($row['topic'],30))?></a></td>
+                <td><?php echo $row['isactive']?'Active':'<b>Disabled</b>'?></td>
+                <td>&nbsp;&nbsp;<?php echo $row['noautoresp']?'No':'<b>Yes</b>'?></td>
+                <td><a href="admin.php?t=dept&id=<?php echo $row['dept_id']?>"><?php echo $row['dept_name']?></a></td>
+                <td><?php echo $row['priority_desc']?></td>
+                <td><?php echo Format::db_datetime($row['updated'])?></td>
             </tr>
-            <?
+            <?php 
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: //notthing! ?> 
-            <tr class="<?=$class?>"><td colspan=8><b>Query returned 0 results</b></td></tr>
-        <?
+            <tr class="<?php echo $class?>"><td colspan=8><b>Query returned 0 results</b></td></tr>
+        <?php 
         endif; ?>
     </table>
     </td></tr>
-    <?
+    <?php 
     if(db_num_rows($services)>0): //Show options..
      ?>
     <tr>
@@ -75,7 +75,7 @@ $services=db_query($sql.' ORDER BY topic');
                 onClick=' return confirm("Are you sure you want to DELETE selected services?");'>
         </td>
     </tr>
-    <?
+    <?php 
     endif;
     ?>
     </form>

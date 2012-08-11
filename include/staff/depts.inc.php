@@ -22,7 +22,7 @@ $depts=db_query($sql.' GROUP BY dept.dept_id ORDER BY dept_name');
             <th><?php $trl->_('LABEL_PRIMARY_OUTGOING_EMAIL')?></th>
             <th><?php $trl->_('LABEL_MANAGER')?></th>
         </tr>
-        <?
+        <?php 
         $class = 'row1';
         $total=0;
         $ids=($errors && is_array($_POST['ids']))?$_POST['ids']:null;
@@ -37,33 +37,33 @@ $depts=db_query($sql.' GROUP BY dept.dept_id ORDER BY dept_name');
                 $row['email']=$row['email_name']?($row['email_name'].' &lt;'.$row['email'].'&gt;'):$row['email'];
                 $default=($defaultId==$row['dept_id'])?'('.$trl->_t('LABEL_DEFAULT').')':'';
                 ?>
-            <tr class="<?=$class?>" id="<?=$row['dept_id']?>">
+            <tr class="<?php echo $class?>" id="<?php echo $row['dept_id']?>">
                 <td width=7px>
-                  <input type="checkbox" name="ids[]" value="<?=$row['dept_id']?>" <?=$sel?'checked':''?>  <?=$default?'disabled':''?>
+                  <input type="checkbox" name="ids[]" value="<?php echo $row['dept_id']?>" <?php echo $sel?'checked':''?>  <?php echo $default?'disabled':''?>
                             onClick="highLight(this.value,this.checked);"> </td>
-                <td><a href="admin.php?t=dept&id=<?=$row['dept_id']?>"><?=$row['dept_name']?></a>&nbsp;<?=$default?></td>
-                <td><?=$row['ispublic']?$trl->_t('LABEL_PUBLIC'):'<b>'.$trl->_t('LABEL_PUBLIC').'</b>'?></td>
+                <td><a href="admin.php?t=dept&id=<?php echo $row['dept_id']?>"><?php echo $row['dept_name']?></a>&nbsp;<?php echo $default?></td>
+                <td><?php echo $row['ispublic']?$trl->_t('LABEL_PUBLIC'):'<b>'.$trl->_t('LABEL_PUBLIC').'</b>'?></td>
                 <td>&nbsp;&nbsp;
                     <b>
-                    <?if($row['users']>0) {?>
-                        <a href="admin.php?t=staff&dept=<?=$row['dept_id']?>"><?=$row['users']?></a>
-                    <?}else{?> 0
-                    <?}?>
+                    <?php if($row['users']>0) {?>
+                        <a href="admin.php?t=staff&dept=<?php echo $row['dept_id']?>"><?php echo $row['users']?></a>
+                    <?php }else{?> 0
+                    <?php }?>
                     </b>
                 </td>
-                <td><a href="admin.php?t=email&id=<?=$row['email_id']?>"><?=$row['email']?></a></td>
-                <td><a href="admin.php?t=staff&id=<?=$row['manager_id']?>"><?=$row['manager']?>&nbsp;</a></td>
+                <td><a href="admin.php?t=email&id=<?php echo $row['email_id']?>"><?php echo $row['email']?></a></td>
+                <td><a href="admin.php?t=staff&id=<?php echo $row['manager_id']?>"><?php echo $row['manager']?>&nbsp;</a></td>
             </tr>
-            <?
+            <?php 
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: //not tickets found!! ?> 
-            <tr class="<?=$class?>"><td colspan=6><b><?php $trl->_('TEXT_QUERY_RETURNED_ZERO_RESULTS')?></b></td></tr>
-        <?
+            <tr class="<?php echo $class?>"><td colspan=6><b><?php $trl->_('TEXT_QUERY_RETURNED_ZERO_RESULTS')?></b></td></tr>
+        <?php 
         endif; ?>
     </table>
     </td></tr>
-    <?
+    <?php 
     if($depts && db_num_rows($depts)): //Show options..
      ?>
     <tr>
@@ -84,7 +84,7 @@ $depts=db_query($sql.' GROUP BY dept.dept_id ORDER BY dept_name');
                 onClick=' return confirm("Are you sure you want to DELETE selected depts(s)?");'>
         </td>
     </tr>
-    <?
+    <?php 
     endif;
     ?>
     </form>

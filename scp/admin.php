@@ -696,30 +696,30 @@ $inc=($page)?STAFFINC_DIR.$page:'';
 require(STAFFINC_DIR.'header.inc.php');
 ?>
 <div>
-    <?if($errors['err']) {?>
-        <p align="center" id="errormessage"><?=$errors['err']?></p>
-    <?}elseif($msg) {?>
-        <p align="center" id="infomessage"><?=$msg?></p>
-    <?}elseif($warn) {?>
-        <p align="center" id="warnmessage"><?=$warn?></p>
-    <?}?>
+    <?php if($errors['err']) {?>
+        <p align="center" id="errormessage"><?php echo $errors['err']?></p>
+    <?php }elseif($msg) {?>
+        <p align="center" id="infomessage"><?php echo $msg?></p>
+    <?php }elseif($warn) {?>
+        <p align="center" id="warnmessage"><?php echo $warn?></p>
+    <?php }?>
 </div>
 <table width="100%" border="0" cellspacing="0" cellpadding="1">
     <tr><td>
         <div style="margin:0 5px 5px 5px;">
-        <?
+        <?php 
             if($inc && file_exists($inc)){
                 require($inc);
             }else{
                 ?>
                 <p align="center">
-                    <font class="error">Problems loading requested admin page. (<?=Format::htmlchars($thistab)?>)</font>
+                    <font class="error">Problems loading requested admin page. (<?php echo Format::htmlchars($thistab)?>)</font>
                     <br>Possibly access denied, if you believe this is in error please get technical support.
                 </p>
-            <?}?>
+            <?php }?>
         </div>
     </td></tr>
 </table>
-<?
+<?php 
 include_once(STAFFINC_DIR.'footer.inc.php');
 ?>

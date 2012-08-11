@@ -15,7 +15,7 @@ if($_REQUEST['dept'] && is_numeric($_REQUEST['dept'])){
 $users=db_query($sql.' ORDER BY lastname,firstname');
 $showing=($num=db_num_rows($users))?"Staff Members":"No staff found. <a href='admin.php?t=staff&a=new&dept=$id'>Add New User</a>.";        
 ?>
- <div class="msg">&nbsp;<?=$showing?>&nbsp;</div>
+ <div class="msg">&nbsp;<?php echo $showing?>&nbsp;</div>
  <table width="100%" border="0" cellspacing=1 cellpadding=2>
     <form action="admin.php?t=staff" method="POST" name="staff" onSubmit="return checkbox_checker(document.forms['staff'],1,0);">
     <input type=hidden name='a' value='staff'>
@@ -32,7 +32,7 @@ $showing=($num=db_num_rows($users))?"Staff Members":"No staff found. <a href='ad
             <th>Created</th>
             <th>Last Login</th>
         </tr>
-        <?
+        <?php 
         $class = 'row1';
         $total=0;
         $uids=($errors && is_array($_POST['uids']))?$_POST['uids']:null;
@@ -45,27 +45,27 @@ $showing=($num=db_num_rows($users))?"Staff Members":"No staff found. <a href='ad
                 }
                 $name=ucfirst($row['firstname'].' '.$row['lastname']);
                 ?>
-            <tr class="<?=$class?>" id="<?=$row['staff_id']?>">
+            <tr class="<?php echo $class?>" id="<?php echo $row['staff_id']?>">
                 <td width=7px>
-                  <input type="checkbox" name="uids[]" value="<?=$row['staff_id']?>" <?=$sel?'checked':''?>  onClick="highLight(this.value,this.checked);">
-                <td><a href="admin.php?t=staff&id=<?=$row['staff_id']?>"><?=Format::htmlchars($name)?></a>&nbsp;</td>
-                <td><?=$row['username']?></td>
-                <td><?=$row['isactive']?'Active':'<b>Locked</b>'?>&nbsp;<?=$row['onvacation']?'(<i>vacation</i>)':''?></td>
-                <td><a href="admin.php?t=grp&id=<?=$row['group_id']?>"><?=Format::htmlchars($row['group_name'])?></a></td>
-                <td><a href="admin.php?t=dept&id=<?=$row['dept_id']?>"><?=Format::htmlchars($row['dept_name'])?></a></td>
-                <td><?=Format::db_date($row['created'])?></td>
-                <td><?=Format::db_datetime($row['lastlogin'])?>&nbsp;</td>
+                  <input type="checkbox" name="uids[]" value="<?php echo $row['staff_id']?>" <?php echo $sel?'checked':''?>  onClick="highLight(this.value,this.checked);">
+                <td><a href="admin.php?t=staff&id=<?php echo $row['staff_id']?>"><?php echo Format::htmlchars($name)?></a>&nbsp;</td>
+                <td><?php echo $row['username']?></td>
+                <td><?php echo $row['isactive']?'Active':'<b>Locked</b>'?>&nbsp;<?php echo $row['onvacation']?'(<i>vacation</i>)':''?></td>
+                <td><a href="admin.php?t=grp&id=<?php echo $row['group_id']?>"><?php echo Format::htmlchars($row['group_name'])?></a></td>
+                <td><a href="admin.php?t=dept&id=<?php echo $row['dept_id']?>"><?php echo Format::htmlchars($row['dept_name'])?></a></td>
+                <td><?php echo Format::db_date($row['created'])?></td>
+                <td><?php echo Format::db_datetime($row['lastlogin'])?>&nbsp;</td>
             </tr>
-            <?
+            <?php 
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: ?> 
-            <tr class="<?=$class?>"><td colspan=8><b>Query returned 0 results</b></td></tr>
-        <?
+            <tr class="<?php echo $class?>"><td colspan=8><b>Query returned 0 results</b></td></tr>
+        <?php 
         endif; ?>
      </table>
     </td></tr>
-    <?
+    <?php 
     if(db_num_rows($users)>0): //Show options..
      ?>
     <tr><td>
@@ -84,7 +84,7 @@ $showing=($num=db_num_rows($users))?"Staff Members":"No staff found. <a href='ad
         <input class="button" type="submit" name="delete" value="Delete" 
             onClick=' return confirm("Are you sure you want to DELETE selected user(s)?");'>
     </td></tr>
-    <?
+    <?php 
     endif;
     ?>
     </form>

@@ -6,24 +6,24 @@ $rep=Format::htmlchars($rep);
 <table width="100%" border="0" cellspacing=0 cellpadding=2>
     <form action="profile.php" method="post">
     <input type="hidden" name="t" value="passwd">
-    <input type="hidden" name="id" value="<?=$thisuser->getId()?>">
+    <input type="hidden" name="id" value="<?php echo $thisuser->getId()?>">
     <tr>
         <td width="120">Current Password:</td>
         <td>
-            <input type="password" name="password" AUTOCOMPLETE=OFF value="<?=$rep['password']?>">
-            &nbsp;<font class="error">*&nbsp;<?=$errors['password']?></font></td>
+            <input type="password" name="password" AUTOCOMPLETE=OFF value="<?php echo $rep['password']?>">
+            &nbsp;<font class="error">*&nbsp;<?php echo $errors['password']?></font></td>
     </tr>
     <tr>
         <td>New Password:</td>
         <td>
-            <input type="password" name="npassword" AUTOCOMPLETE=OFF value="<?=$rep['npassword']?>">
-            &nbsp;<font class="error">*&nbsp;<?=$errors['npassword']?></font></td>
+            <input type="password" name="npassword" AUTOCOMPLETE=OFF value="<?php echo $rep['npassword']?>">
+            &nbsp;<font class="error">*&nbsp;<?php echo $errors['npassword']?></font></td>
     </tr>
     <tr>
         <td>Verify Password:</td>
         <td>
-            <input type="password" name="vpassword" AUTOCOMPLETE=OFF value="<?=$rep['vpassword']?>">
-            &nbsp;<font class="error">*&nbsp;<?=$errors['vpassword']?></font></td>
+            <input type="password" name="vpassword" AUTOCOMPLETE=OFF value="<?php echo $rep['vpassword']?>">
+            &nbsp;<font class="error">*&nbsp;<?php echo $errors['vpassword']?></font></td>
     </tr>
     <tr><td >&nbsp;</td>
          <td><br/>

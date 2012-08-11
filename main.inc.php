@@ -149,8 +149,6 @@
         $ferror='Unable to connect to the database';
     }elseif(!($cfg=Sys::getConfig())){
         $ferror='Unable to load config info from DB. Get tech support.';
-    }elseif(!ini_get('short_open_tag')) {
-        $ferror='Short open tag disabled! - osTicket requires it turned ON.';
     }
 
     if($ferror){ //Fatal error

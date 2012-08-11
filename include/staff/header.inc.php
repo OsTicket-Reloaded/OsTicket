@@ -1,4 +1,4 @@
-<? if(!defined('OSTSCPINC') || !is_object($thisuser) || !$thisuser->isStaff() || !is_object($nav)) die($trl->translate("TEXT_ACCESS_DENIED")); 
+<?php  if(!defined('OSTSCPINC') || !is_object($thisuser) || !$thisuser->isStaff() || !is_object($nav)) die($trl->translate("TEXT_ACCESS_DENIED")); 
 $trl->sendHeader();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -23,7 +23,7 @@ echo '<meta http-equiv="refresh" content="'.AUTO_REFRESH_RATE.'" />';
 <?php
 if($cfg && $cfg->getLockTime()) { //autoLocking enabled.?>
 <script type="text/javascript" src="js/autolock.js" charset="utf-8"></script>
-<?}?>
+<?php }?>
 </head>
 <body>
 <?php
@@ -38,28 +38,28 @@ if($sysnotice){?>
            <?php
             if($thisuser->isAdmin() && !defined('ADMINPAGE')) { ?>
             | <a href="admin.php"><?php echo $trl->translate('LABEL_ADMIN_PANEL');?></a> 
-            <?}else{?>
+            <?php }else{?>
             | <a href="index.php"><?php echo $trl->translate('LABEL_STAFF_PANEL');?></a>
-            <?}?>
+            <?php }?>
             | <a href="profile.php?t=pref"><?php echo $trl->translate('LABEL_MY_PREFERENCE');?></a> | <a href="logout.php"><?php echo $trl->translate('LABEL_LOG_OUT');?></a></p>
     </div>
     <div id="nav">
-        <ul id="main_nav" <?=!defined('ADMINPAGE')?'class="dist"':''?>>
-            <?
+        <ul id="main_nav" <?php echo !defined('ADMINPAGE')?'class="dist"':''?>>
+            <?php 
             if(($tabs=$nav->getTabs()) && is_array($tabs)){
              foreach($tabs as $tab) { ?>
-                <li><a <?=$tab['active']?'class="active"':''?> href="<?=$tab['href']?>" title="<?=$tab['title']?>"><?=$tab['desc']?></a></li>
-            <?}
+                <li><a <?php echo $tab['active']?'class="active"':''?> href="<?php echo $tab['href']?>" title="<?php echo $tab['title']?>"><?php echo $tab['desc']?></a></li>
+            <?php }
             }else{ //?? ?>
                 <li><a href="profile.php" title="<?php echo $trl->translate('LABEL_MY_PREFERENCE');?>"><?php echo $trl->translate('LABEL_MY_ACCOUNT');?></a></li>
-            <?}?>
+            <?php }?>
         </ul>
         <ul id="sub_nav">
             <?php
             if(($subnav=$nav->getSubMenu()) && is_array($subnav)){
               foreach($subnav as $item) { ?>
-                <li><a class="<?=$item['iconclass']?>" href="<?=$item['href']?>" title="<?echo $item['title'];?>"><?=$item['desc']?></a></li>
-              <?}
+                <li><a class="<?php echo $item['iconclass']?>" href="<?php echo $item['href']?>" title="<?php echo $item['title'];?>"><?php echo $item['desc']?></a></li>
+              <?php }
             }?>
         </ul>
     </div>

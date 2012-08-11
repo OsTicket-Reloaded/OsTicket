@@ -4,24 +4,24 @@ if(!defined('OSTCLIENTINC') || !is_object($ticket)) die('Kwaheri rafiki!'); //Sa
 //Please customize the message below to fit your organization speak!
 ?>
 <div>
-    <?if($errors['err']) {?>
-        <p align="center" id="errormessage"><?=$errors['err']?></p>
-    <?}elseif($msg) {?>
-        <p align="center" id="infomessage"><?=$msg?></p>
-    <?}elseif($warn) {?>
-        <p id="warnmessage"><?=$warn?></p>
-    <?}?>
+    <?php if($errors['err']) {?>
+        <p align="center" id="errormessage"><?php echo $errors['err']?></p>
+    <?php }elseif($msg) {?>
+        <p align="center" id="infomessage"><?php echo $msg?></p>
+    <?php }elseif($warn) {?>
+        <p id="warnmessage"><?php echo $warn?></p>
+    <?php }?>
 </div>
 <div style="margin:5px 100px 100px 0;">
-    <?=Format::htmlchars($ticket->getName())?>,<br>
-    <p><?=$trl->translate('TEXT_THANKS_NEW_TICKET')?></p>
+    <?php echo Format::htmlchars($ticket->getName())?>,<br>
+    <p><?php echo $trl->translate('TEXT_THANKS_NEW_TICKET')?></p>
           
-    <?if($cfg->autoRespONNewTicket()){ ?>
-    <p><?=$trl->translate('TEXT_NEW_TICKET_AUTO_RESPONSE',$ticket->getEmail())?>
+    <?php if($cfg->autoRespONNewTicket()){ ?>
+    <p><?php echo $trl->translate('TEXT_NEW_TICKET_AUTO_RESPONSE',$ticket->getEmail())?>
     </p>
-    <?}?>
-    <p><?=$trl->translate('TEXT_SUPPORT_TEAM')?></p>
+    <?php }?>
+    <p><?php echo $trl->translate('TEXT_SUPPORT_TEAM')?></p>
 </div>
-<?
+<?php 
 unset($_POST); //clear to avoid re-posting on back button??
 ?>

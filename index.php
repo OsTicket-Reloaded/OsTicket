@@ -62,4 +62,4 @@ require(CLIENTINC_DIR.'header.inc.php');
 <br />
 </div>
 <br />
-<?require(CLIENTINC_DIR.'footer.inc.php'); ?>
+<?php require(CLIENTINC_DIR.'footer.inc.php'); ?>

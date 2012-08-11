@@ -47,33 +47,33 @@ $users=db_query("$sql $WHERE ORDER BY lastname,firstname");
 require_once(STAFFINC_DIR.'header.inc.php');
 ?>
 <div>
-    <?if($errors['err']) {?>
-        <p align="center" id="errormessage"><?=$errors['err']?></p>
-    <?}elseif($msg) {?>
-        <p align="center" id="infomessage"><?=$msg?></p>
-    <?}elseif($warn) {?>
-        <p id="warnmessage"><?=$warn?></p>
-    <?}?>
+    <?php if($errors['err']) {?>
+        <p align="center" id="errormessage"><?php echo $errors['err']?></p>
+    <?php }elseif($msg) {?>
+        <p align="center" id="infomessage"><?php echo $msg?></p>
+    <?php }elseif($warn) {?>
+        <p id="warnmessage"><?php echo $warn?></p>
+    <?php }?>
 </div>
 <div align="left">
     <form action="directory.php" method="POST" >
     <input type='hidden' name='a' value='search'>
-    Search for :&nbsp;<input type="text" name="query" value="<?=Format::htmlchars($_REQUEST['query'])?>">
+    Search for :&nbsp;<input type="text" name="query" value="<?php echo Format::htmlchars($_REQUEST['query'])?>">
     Dept.
     <select name="dept">
             <option value=0>All Department</option>
-            <?
+            <?php 
             $depts= db_query('SELECT dept_id,dept_name FROM '.DEPT_TABLE);
             while (list($deptId,$deptName) = db_fetch_row($depts)){
                 $selected = ($_POST['dept']==$deptId)?'selected':''; ?>
-                <option value="<?=$deptId?>"<?=$selected?>><?=$deptName?></option>
-           <?}?>
+                <option value="<?php echo $deptId?>"<?php echo $selected?>><?php echo $deptName?></option>
+           <?php }?>
     </select>
     &nbsp;
     <input type="submit" name="search" class="button" value="GO">
     </form>
 </div>
-<? if($users && db_num_rows($users)):?>
+<?php  if($users && db_num_rows($users)):?>
 <div class="msg">Staff Members</div>
 <table border="0" cellspacing=0 cellpadding=2 class="dtable" width="100%">
     <tr>
@@ -83,25 +83,25 @@ require_once(STAFFINC_DIR.'header.inc.php');
         <th>Phone</th>
         <th>Mobile</th>
     </tr>
-    <?
+    <?php 
     $class = 'row1';
     while ($row = db_fetch_array($users)) {
         $name=ucfirst($row['firstname'].' '.$row['lastname']);
         $ext=$row['phone_ext']?'&nbsp;Ext&nbsp;'.$row['phone_ext']:'';
         ?>
-        <tr class="<?=$class?>" id="<?=$row['staff_id']?>" onClick="highLightToggle(this.id);">
-            <td><?=$name?>&nbsp;</td>
-            <td><?=$row['dept_name']?>&nbsp;</td>
-            <td><?=$row['email']?>&nbsp;</td>
-            <td><?=Format::phone($row['phone'])?>&nbsp;<?=$ext?></td>
-            <td><?=Format::phone($row['mobile'])?>&nbsp;</td>
+        <tr class="<?php echo $class?>" id="<?php echo $row['staff_id']?>" onClick="highLightToggle(this.id);">
+            <td><?php echo $name?>&nbsp;</td>
+            <td><?php echo $row['dept_name']?>&nbsp;</td>
+            <td><?php echo $row['email']?>&nbsp;</td>
+            <td><?php echo Format::phone($row['phone'])?>&nbsp;<?php echo $ext?></td>
+            <td><?php echo Format::phone($row['mobile'])?>&nbsp;</td>
         </tr>
-        <?
+        <?php 
         $class = ($class =='row2') ?'row1':'row2';
     }
     ?>
 </table>
-<?
+<?php 
 else:
 echo "<b>Problems displaying directory</b>";
 endif;

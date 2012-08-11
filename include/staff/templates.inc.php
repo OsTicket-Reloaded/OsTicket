@@ -35,7 +35,7 @@ $deletable=0;
 ?>
 <div class="msg">Email Templates</div>
 <hr>
-<div><b><?=$showing?></b></div>
+<div><b><?php echo $showing?></b></div>
  <table width="100%" border="0" cellspacing=1 cellpadding=2>
    <form action="admin.php?t=templates" method="POST" name="tpl" onSubmit="return checkbox_checker(document.forms['tpl'],1,0);">
    <input type=hidden name='t' value='templates'>
@@ -45,13 +45,13 @@ $deletable=0;
         <tr>
 	        <th width="7px">&nbsp;</th>
 	        <th>
-                <a href="admin.php?t=templates&sort=name&order=<?=$negorder?><?=$qstr?>" title="Sort by name <?=$negorder?>">Name</a></th>
+                <a href="admin.php?t=templates&sort=name&order=<?php echo $negorder?><?php echo $qstr?>" title="Sort by name <?php echo $negorder?>">Name</a></th>
             <th width="20" nowrap>In-Use</th>
 	        <th width="170" nowrap>&nbsp;&nbsp;
-                <a href="admin.php?t=templates&sort=date&order=<?=$negorder?><?=$qstr?>" title="Sort By Create Date <?=$negorder?>">Last Update</a></th>
+                <a href="admin.php?t=templates&sort=date&order=<?php echo $negorder?><?php echo $qstr?>" title="Sort By Create Date <?php echo $negorder?>">Last Update</a></th>
             <th width="170" nowrap>Created</th>
         </tr>
-        <?
+        <?php 
         $class = 'row1';
         $total=0;
         $sids=($errors && is_array($_POST['ids']))?$_POST['ids']:null;
@@ -70,25 +70,25 @@ $deletable=0;
                     }
                 }
                 ?>
-            <tr class="<?=$class?>" id="<?=$row['tpl_id']?>">
+            <tr class="<?php echo $class?>" id="<?php echo $row['tpl_id']?>">
                 <td width=7px>
-                  <input type="checkbox" name="ids[]" value="<?=$row['tpl_id']?>" <?=$sel?'checked':''?> <?=$disabled?>
+                  <input type="checkbox" name="ids[]" value="<?php echo $row['tpl_id']?>" <?php echo $sel?'checked':''?> <?php echo $disabled?>
                         onClick="highLight(this.value,this.checked);">
-                <td><a href="admin.php?t=templates&id=<?=$row['tpl_id']?>"><?=$row['name']?></a></td>
-                <td><?=$disabled?'Yes':'No'?></td>
-                <td><?=Format::db_datetime($row['updated'])?></td>
-                <td><?=Format::db_datetime($row['created'])?></td>
+                <td><a href="admin.php?t=templates&id=<?php echo $row['tpl_id']?>"><?php echo $row['name']?></a></td>
+                <td><?php echo $disabled?'Yes':'No'?></td>
+                <td><?php echo Format::db_datetime($row['updated'])?></td>
+                <td><?php echo Format::db_datetime($row['created'])?></td>
             </tr>
-            <?
+            <?php 
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: //nothin' found!! ?> 
-            <tr class="<?=$class?>"><td colspan=5><b>Query returned 0 results</b>&nbsp;&nbsp;<a href="admin.php?t=templates">Index list</a></td></tr>
-        <?
+            <tr class="<?php echo $class?>"><td colspan=5><b>Query returned 0 results</b>&nbsp;&nbsp;<a href="admin.php?t=templates">Index list</a></td></tr>
+        <?php 
         endif; ?>
      </table>
     </td></tr>
-    <?
+    <?php 
     if(db_num_rows($result)>0 && $deletable): //Show options..
      ?>
     <tr>
@@ -97,7 +97,7 @@ $deletable=0;
                      onClick='return confirm("Are you sure you want to DELETE selected template(s)?");'>
         </td>
     </tr>
-    <?
+    <?php 
     endif;
     ?>
     </form>
@@ -111,18 +111,18 @@ $deletable=0;
     <input type=hidden name='t' value='templates'>
     <input type=hidden name='do' value='add'>
     Name:
-    <input name="name" size=30 value="<?=($errors)?Format::htmlchars($_REQUEST['name']):''?>" />
-    <font class="error">*&nbsp;<?=$errors['name']?></font>&nbsp;&nbsp;
+    <input name="name" size=30 value="<?php echo ($errors)?Format::htmlchars($_REQUEST['name']):''?>" />
+    <font class="error">*&nbsp;<?php echo $errors['name']?></font>&nbsp;&nbsp;
     Copy: 
     <select name="copy_template">
         <option value=0>Select Template to Copy</option>
-          <?
+          <?php 
           $result=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE);
           while (list($id,$name)= db_fetch_row($result)){ ?>
-              <option value="<?=$id?>"><?=$name?></option>
-                  <?
+              <option value="<?php echo $id?>"><?php echo $name?></option>
+                  <?php 
           }?>
-     </select>&nbsp;<font class="error">*&nbsp;<?=$errors['copy_template']?></font>
+     </select>&nbsp;<font class="error">*&nbsp;<?php echo $errors['copy_template']?></font>
      &nbsp;&nbsp; <input class="button" type="submit" name="add" value="Add">
  </div>
  <br/>

@@ -11,56 +11,56 @@ $dept=($dept && $dept->isPublic())?$dept:$cfg->getDefaultDept();
 //We roll like that...
 ?>
 <table width="100%" cellpadding="1" cellspacing="0" border="0">
-    <tr><td colspan=2 width=100% class="msg"><?= $trl->translate('TEXT_TICKET_NUMBER')?> <?=$ticket->getExtId()?> 
-        &nbsp;<a href="view.php?id=<?=$ticket->getExtId()?>" title="Reload"><span class="Icon refresh">&nbsp;</span></a></td></tr> 
+    <tr><td colspan=2 width=100% class="msg"><?php echo  $trl->translate('TEXT_TICKET_NUMBER')?> <?php echo $ticket->getExtId()?> 
+        &nbsp;<a href="view.php?id=<?php echo $ticket->getExtId()?>" title="Reload"><span class="Icon refresh">&nbsp;</span></a></td></tr> 
     <tr>
        <td width=50%>	
         <table align="center" class="infotable" cellspacing="1" cellpadding="3" width="100%" border=0>
 	        <tr>
-				<th width="100" ><?= $trl->translate('LABEL_TICKET_NUMBER')?>:</th>
-				<td><?=$ticket->getStatus()?></td>
+				<th width="100" ><?php echo  $trl->translate('LABEL_TICKET_NUMBER')?>:</th>
+				<td><?php echo $ticket->getStatus()?></td>
 			</tr>
             <tr>
-                <th><?= $trl->translate('LABEL_DEPARTMENT')?>:</th>
-                <td><?=Format::htmlchars($dept->getName())?></td>
+                <th><?php echo  $trl->translate('LABEL_DEPARTMENT')?>:</th>
+                <td><?php echo Format::htmlchars($dept->getName())?></td>
             </tr>
 			<tr>
-                <th><?= $trl->translate('LABEL_CREATE_DATE')?>:</th>
-                <td><?=Format::db_datetime($ticket->getCreateDate())?></td>
+                <th><?php echo  $trl->translate('LABEL_CREATE_DATE')?>:</th>
+                <td><?php echo Format::db_datetime($ticket->getCreateDate())?></td>
             </tr>
 		</table>
 	   </td>
 	   <td width=50% valign="top">
         <table align="center" class="infotable" cellspacing="1" cellpadding="3" width="100%" border=0>
             <tr>
-                <th width="100"><?= $trl->translate('LABEL_NAME')?>:</th>
-                <td><?=Format::htmlchars($ticket->getName())?></td>
+                <th width="100"><?php echo  $trl->translate('LABEL_NAME')?>:</th>
+                <td><?php echo Format::htmlchars($ticket->getName())?></td>
             </tr>
             <tr>
-                <th width="100"><?= $trl->translate('LABEL_EMAIL')?>:</th>
-                <td><?=$ticket->getEmail()?></td>
+                <th width="100"><?php echo  $trl->translate('LABEL_EMAIL')?>:</th>
+                <td><?php echo $ticket->getEmail()?></td>
             </tr>
             <tr>
-                <th><?= $trl->translate('LABEL_PHONE')?>:</th>
-                <td><?=Format::phone($ticket->getPhoneNumber())?></td>
+                <th><?php echo  $trl->translate('LABEL_PHONE')?>:</th>
+                <td><?php echo Format::phone($ticket->getPhoneNumber())?></td>
             </tr>
         </table>
        </td>
     </tr>
 </table>
-<div class="msg"><?= $trl->translate('LABEL_SUBJECT')?>: <?=Format::htmlchars($ticket->getSubject())?></div>
+<div class="msg"><?php echo  $trl->translate('LABEL_SUBJECT')?>: <?php echo Format::htmlchars($ticket->getSubject())?></div>
 <div>
-    <?if($errors['err']) {?>
-        <p align="center" id="errormessage"><?=$errors['err']?></p>
-    <?}elseif($msg) {?>
-        <p align="center" id="infomessage"><?=$msg?></p>
-    <?}?>
+    <?php if($errors['err']) {?>
+        <p align="center" id="errormessage"><?php echo $errors['err']?></p>
+    <?php }elseif($msg) {?>
+        <p align="center" id="infomessage"><?php echo $msg?></p>
+    <?php }?>
 </div>
 <br>
 <div align="left">
-    <span class="Icon thread"><?= $trl->translate('TEXT_TICKET_THREAD')?></span>
+    <span class="Icon thread"><?php echo  $trl->translate('TEXT_TICKET_THREAD')?></span>
     <div id="ticketthread">
-        <?
+        <?php 
 	    //get messages
         $sql='SELECT msg.*, count(attach_id) as attachments  FROM '.TICKET_MESSAGE_TABLE.' msg '.
             ' LEFT JOIN '.TICKET_ATTACHMENT_TABLE.' attach ON  msg.ticket_id=attach.ticket_id AND msg.msg_id=attach.ref_id AND ref_type=\'M\' '.
@@ -70,14 +70,14 @@ $dept=($dept && $dept->isPublic())?$dept:$cfg->getDefaultDept();
 	    while ($msg_row = db_fetch_array($msgres)):
 		    ?>
 		    <table align="center" class="message" cellspacing="0" cellpadding="1" width="100%" border=0>
-		        <tr><th><?=Format::db_daydatetime($msg_row['created'])?></th></tr>
-                <?if($msg_row['attachments']>0){ ?>
-                <tr class="header"><td><?=$ticket->getAttachmentStr($msg_row['msg_id'],'M')?></td></tr> 
-                <?}?>
+		        <tr><th><?php echo Format::db_daydatetime($msg_row['created'])?></th></tr>
+                <?php if($msg_row['attachments']>0){ ?>
+                <tr class="header"><td><?php echo $ticket->getAttachmentStr($msg_row['msg_id'],'M')?></td></tr> 
+                <?php }?>
                 <tr class="info">
-                    <td><?=Format::display($msg_row['message'])?></td></tr>
+                    <td><?php echo Format::display($msg_row['message'])?></td></tr>
 		    </table>
-            <?
+            <?php 
             //get answers for messages
             $sql='SELECT resp.*,count(attach_id) as attachments FROM '.TICKET_RESPONSE_TABLE.' resp '.
                 ' LEFT JOIN '.TICKET_ATTACHMENT_TABLE.' attach ON  resp.ticket_id=attach.ticket_id AND resp.response_id=attach.ref_id AND ref_type=\'R\' '.
@@ -91,16 +91,16 @@ $dept=($dept && $dept->isPublic())?$dept:$cfg->getDefaultDept();
                 ?>
     		    <table align="center" class="response" cellspacing="0" cellpadding="1" width="100%" border=0>
     		        <tr>
-    			        <th><?=Format::db_daydatetime($resp_row['created'])?>&nbsp;-&nbsp;<?=$name?></th></tr>
-                    <?if($resp_row['attachments']>0){ ?>
+    			        <th><?php echo Format::db_daydatetime($resp_row['created'])?>&nbsp;-&nbsp;<?php echo $name?></th></tr>
+                    <?php if($resp_row['attachments']>0){ ?>
                     <tr class="header">
-                        <td><?=$ticket->getAttachmentStr($respID,'R')?></td></tr>
+                        <td><?php echo $ticket->getAttachmentStr($respID,'R')?></td></tr>
                                     
-                    <?}?>
+                    <?php }?>
 			        <tr class="info">
-				        <td> <?=Format::display($resp_row['response'])?></td></tr>
+				        <td> <?php echo Format::display($resp_row['response'])?></td></tr>
 		        </table>
-		    <?
+		    <?php 
 		    } //endwhile...response loop.
             $msgid =$msg_row['msg_id'];
         endwhile; //message loop.
@@ -109,34 +109,34 @@ $dept=($dept && $dept->isPublic())?$dept:$cfg->getDefaultDept();
 </div>
 <div>
     <div align="center">
-        <?if($_POST && $errors['err']) {?>
-            <p align="center" id="errormessage"><?=$errors['err']?></p>
-        <?}elseif($msg) {?>
-            <p align="center" id="infomessage"><?=$msg?></p>
-        <?}?>
+        <?php if($_POST && $errors['err']) {?>
+            <p align="center" id="errormessage"><?php echo $errors['err']?></p>
+        <?php }elseif($msg) {?>
+            <p align="center" id="infomessage"><?php echo $msg?></p>
+        <?php }?>
     </div> 
     <div id="reply" style="padding:10px 0 20px 40px;">
-        <?if($ticket->isClosed()) {?>
-        <div class="msg"><?= $trl->translate('TEXT_TICKET_WILL_REOPEN_NEW_POST')?></div>
-        <?}?>
-        <form action="view.php?id=<?=$id?>#reply" name="reply" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?=$ticket->getExtId()?>">
-            <input type="hidden" name="respid" value="<?=$respID?>">
+        <?php if($ticket->isClosed()) {?>
+        <div class="msg"><?php echo  $trl->translate('TEXT_TICKET_WILL_REOPEN_NEW_POST')?></div>
+        <?php }?>
+        <form action="view.php?id=<?php echo $id?>#reply" name="reply" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $ticket->getExtId()?>">
+            <input type="hidden" name="respid" value="<?php echo $respID?>">
             <input type="hidden" name="a" value="postmessage">
             <div align="left">
-                <?= $trl->translate('TEXT_ENTER_MESSAGE')?> <font class="error">*&nbsp;<?=$errors['message']?></font><br/>
-                <textarea name="message" id="message" cols="60" rows="7" wrap="soft"><?=$info['message']?></textarea>
+                <?php echo  $trl->translate('TEXT_ENTER_MESSAGE')?> <font class="error">*&nbsp;<?php echo $errors['message']?></font><br/>
+                <textarea name="message" id="message" cols="60" rows="7" wrap="soft"><?php echo $info['message']?></textarea>
             </div>
-            <? if($cfg->allowOnlineAttachments()) {?>
+            <?php  if($cfg->allowOnlineAttachments()) {?>
             <div align="left">
-                <?= $trl->translate('TEXT_ATTACH_FILE')?><br><input type="file" name="attachment" id="attachment" size=30px value="<?=$info['attachment']?>" /> 
-                    <font class="error">&nbsp;<?=$errors['attachment']?></font>
+                <?php echo  $trl->translate('TEXT_ATTACH_FILE')?><br><input type="file" name="attachment" id="attachment" size=30px value="<?php echo $info['attachment']?>" /> 
+                    <font class="error">&nbsp;<?php echo $errors['attachment']?></font>
             </div>
-            <?}?>
+            <?php }?>
             <div align="left"  style="padding:10px 0 10px 0;">
-                <input class="button" type='submit' value='<?= $trl->translate('LABEL_POST_REPLY')?>' />
-                <input class="button" type='reset' value='<?= $trl->translate('LABEL_RESET')?>' />
-                <input class="button" type='button' value='<?= $trl->translate('LABEL_CANCEL')?>' onClick='window.location.href="view.php"' />
+                <input class="button" type='submit' value='<?php echo  $trl->translate('LABEL_POST_REPLY')?>' />
+                <input class="button" type='reset' value='<?php echo  $trl->translate('LABEL_RESET')?>' />
+                <input class="button" type='button' value='<?php echo  $trl->translate('LABEL_CANCEL')?>' onClick='window.location.href="view.php"' />
             </div>
         </form>
     </div>

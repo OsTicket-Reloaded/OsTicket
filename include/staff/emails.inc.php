@@ -22,7 +22,7 @@ $emails=db_query($sql.' ORDER BY email');
             <th><?php $trl->_('LABEL_PRIORITY')?></th>
 	        <th><?php $trl->_('LABEL_LAST_UPDATED')?></th>
         </tr>
-        <?
+        <?php 
         $class = 'row1';
         $total=0;
         $ids=($errors && is_array($_POST['ids']))?$_POST['ids']:null;
@@ -38,26 +38,26 @@ $emails=db_query($sql.' ORDER BY email');
                     $row['email']=$row['name'].' <'.$row['email'].'>';
                 }
                 ?>
-            <tr class="<?=$class?>" id="<?=$row['email_id']?>">
+            <tr class="<?php echo $class?>" id="<?php echo $row['email_id']?>">
                 <td width=7px>
-                 <input type="checkbox" name="ids[]" value="<?=$row['email_id']?>" <?=$sel?'checked':''?>  
-                    <?=($defaultID==$row['email_id'])?'disabled':''?>   onClick="highLight(this.value,this.checked);">
-                <td><a href="admin.php?t=email&id=<?=$row['email_id']?>"><?=Format::htmlchars($row['email'])?></a></td>
-                <td>&nbsp;&nbsp;<?=$row['noautoresp']?'No':'<b>Yes</b>'?></td>
-                <td><a href="admin.php?t=dept&id=<?=$row['dept_id']?>"><?=Format::htmlchars($row['dept_name'])?></a></td>
-                <td><?=$row['priority_desc']?></td>
-                <td><?=Format::db_datetime($row['updated'])?></td>
+                 <input type="checkbox" name="ids[]" value="<?php echo $row['email_id']?>" <?php echo $sel?'checked':''?>  
+                    <?php echo ($defaultID==$row['email_id'])?'disabled':''?>   onClick="highLight(this.value,this.checked);">
+                <td><a href="admin.php?t=email&id=<?php echo $row['email_id']?>"><?php echo Format::htmlchars($row['email'])?></a></td>
+                <td>&nbsp;&nbsp;<?php echo $row['noautoresp']?'No':'<b>Yes</b>'?></td>
+                <td><a href="admin.php?t=dept&id=<?php echo $row['dept_id']?>"><?php echo Format::htmlchars($row['dept_name'])?></a></td>
+                <td><?php echo $row['priority_desc']?></td>
+                <td><?php echo Format::db_datetime($row['updated'])?></td>
             </tr>
-            <?
+            <?php 
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: ?> 
-            <tr class="<?=$class?>"><td colspan=6><b>Query returned 0 results</b></td></tr>
-        <?
+            <tr class="<?php echo $class?>"><td colspan=6><b>Query returned 0 results</b></td></tr>
+        <?php 
         endif; ?>
     </table>
    </td></tr>
-    <?
+    <?php 
     if(db_num_rows($emails)>0): //Show options..
      ?>
     <tr>
@@ -74,7 +74,7 @@ $emails=db_query($sql.' ORDER BY email');
                 onClick=' return confirm("Are you sure you want to DELETE selected emails?");'>
         </td>
     </tr>
-    <?
+    <?php 
     endif;
     ?>
   </form>

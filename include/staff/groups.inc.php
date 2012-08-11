@@ -7,7 +7,7 @@ $sql='SELECT grp.group_id,group_name,group_enabled,count(staff.staff_id) as user
 $groups=db_query($sql.' GROUP BY grp.group_id ORDER BY group_name');    
 $showing=($num=db_num_rows($groups))?'User Groups':'No groups??';
 ?>
-<div class="msg"><?=$showing?></div>
+<div class="msg"><?php echo $showing?></div>
 <table width="100%" border="0" cellspacing=1 cellpadding=2>
     <form action="admin.php?t=groups" method="POST" name="groups" onSubmit="return checkbox_checker(document.forms['groups'],1,0);">
     <input type=hidden name='a' value='update_groups'>
@@ -21,7 +21,7 @@ $showing=($num=db_num_rows($groups))?'User Groups':'No groups??';
 	        <th>&nbsp;Create Date</th>
 	        <th>Last Updated</th>
         </tr>
-        <?
+        <?php 
         $class = 'row1';
         $total=0;
         $grps=($errors && is_array($_POST['grps']))?$_POST['grps']:null;
@@ -33,24 +33,24 @@ $showing=($num=db_num_rows($groups))?'User Groups':'No groups??';
                     $sel=true;
                 }
                 ?>
-            <tr class="<?=$class?>" id="<?=$row['group_id']?>">
+            <tr class="<?php echo $class?>" id="<?php echo $row['group_id']?>">
                 <td width=7px>
-                  <input type="checkbox" name="grps[]" value="<?=$row['group_id']?>" <?=$sel?'checked':''?>  onClick="highLight(this.value,this.checked);">
-                <td><a href="admin.php?t=grp&id=<?=$row['group_id']?>"><?=Format::htmlchars($row['group_name'])?></a></td>
-                <td><b><?=$row['group_enabled']?'Active':'Disabled'?></b></td>
-                <td>&nbsp;&nbsp;<a href="admin.php?t=staff&gid=<?=$row['group_id']?>"><?=$row['users']?></a></td>
-                <td><?=Format::db_date($row['created'])?></td>
-                <td><?=Format::db_datetime($row['updated'])?></td>
+                  <input type="checkbox" name="grps[]" value="<?php echo $row['group_id']?>" <?php echo $sel?'checked':''?>  onClick="highLight(this.value,this.checked);">
+                <td><a href="admin.php?t=grp&id=<?php echo $row['group_id']?>"><?php echo Format::htmlchars($row['group_name'])?></a></td>
+                <td><b><?php echo $row['group_enabled']?'Active':'Disabled'?></b></td>
+                <td>&nbsp;&nbsp;<a href="admin.php?t=staff&gid=<?php echo $row['group_id']?>"><?php echo $row['users']?></a></td>
+                <td><?php echo Format::db_date($row['created'])?></td>
+                <td><?php echo Format::db_datetime($row['updated'])?></td>
             </tr>
-            <?
+            <?php 
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: //not tickets found!! ?> 
-            <tr class="<?=$class?>"><td colspan=6><b>Query returned 0 results</b></td></tr>
-        <?
+            <tr class="<?php echo $class?>"><td colspan=6><b>Query returned 0 results</b></td></tr>
+        <?php 
         endif; ?>
     </table>
-    <?
+    <?php 
     if(db_num_rows($groups)>0): //Show options..
      ?>
     <tr>
@@ -71,7 +71,7 @@ $showing=($num=db_num_rows($groups))?'User Groups':'No groups??';
                 onClick=' return confirm("Are you sure you want to DELETE selected group(s)");'>
         </td>
     </tr>
-    <?
+    <?php 
     endif;
     ?>
     </form>
