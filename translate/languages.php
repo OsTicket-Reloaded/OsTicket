@@ -15,5 +15,6 @@ $LANG['PT_NAME'] = 'Portugues';
 $LANG['PT_BR_NAME'] = 'Portugues Brasil';
 $LANG['RU_NAME'] = 'Russian';
 $LANG['SV_NAME'] = 'Swedish';
+$LANG['ZH_NAME'] = 'Simple Chinese';
 
 ?>
