@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 #Disable direct access.
 if (!strcasecmp(basename($_SERVER['SCRIPT_NAME']), basename( __FILE__ ))) die ('kwaheri rafiki!');
@@ -103,8 +103,13 @@ $LANG['LABEL_CREATE_DATE'] = 'Skapardatum';
 // Label D
 $LANG['LABEL_DASHBOARD'] = 'Kontrollpanel';
 $LANG['LABEL_DATE'] = 'Datum';
+$LANG['LABEL_DATE_AND_TIME_FORMAT'] = 'Datum och tidsformat';
+$LANG['LABEL_DATE_FORMAT'] = 'Datumformat';
 $LANG['LABEL_DATE_SPAN'] = 'Datumspann';
+$LANG['LABEL_DAY_DATE_AND_TIME_FORMAT'] = 'Dag, Datum och Tidsformat';
+$LANG['LABEL_DAYLIGHT_SAVING'] = 'Sommartid';
 $LANG['LABEL_DEFAULT'] = 'Standard';
+$LANG['LABEL_DEFAULT_TIME_ZONE'] = 'Tidszon';
 $LANG['LABEL_DELETE'] = 'Ta bort';
 $LANG['LABEL_DELETE_DEPT_S'] = 'Ta bort avdelning(ar)';
 $LANG['LABEL_DEPARTMENT'] = 'Avdelning';
@@ -136,7 +141,7 @@ $LANG['LABEL_FROM'] = 'Från.';
 $LANG['LABEL_FULL_NAME'] = 'För och efternamn';
 // Label G
 $LANG['LABEL_GENERAL_SETTINGS'] = 'Generella inställningar';
-$LANG['LABEL_GO'] = 'GO';
+$LANG['LABEL_GO'] = 'Gå';
 // Label H
 $LANG['LABEL_HELP_TOPIC'] = 'Gällande';
 $LANG['LABEL_HELP_TOPICS'] = 'Gällande';
@@ -163,6 +168,7 @@ $LANG['LABEL_HELPDESK_STATUS'] = 'Helpdesk Status';
 $LANG['LABEL_HELPDESK_SYSTEM_LOG_LEVEL'] = 'System Log Level'; 
 $LANG['LABEL_HELPDESK_URL'] = 'Helpdesk URL';
 // Label I
+$LANG['LABEL_ISSUE_SUMMARY'] = 'Problemsammanfattning';
 // Label J
 
 // Label K
@@ -250,6 +256,15 @@ $LANG['LABEL_SUBMIT'] = 'Skicka';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Skicka ärende';
 $LANG['LABEL_SYSTEM_DEFAULT_TEMPLATE'] = 'System Default';
 $LANG['LABEL_SYSTEM_LOGS'] = 'Systemloggar';
+$LANG['LABEL_SYSTEM_LOGS_DATESPAN'] = 'Datumspann';
+$LANG['LABEL_SYSTEM_LOGS_FROM'] = 'Från';
+$LANG['LABEL_SYSTEM_LOGS_TO'] = 'Till';
+$LANG['LABEL_SYSTEM_LOGS_TYPE'] = 'Typ';
+$LANG['LABEL_SYSTEM_LOGS_ALL'] = 'Alla loggar';
+$LANG['LABEL_SYSTEM_LOGS_ERRORS'] = 'Fel loggar';
+$LANG['LABEL_SYSTEM_LOGS_WARNINGS'] = 'Varnings loggar';
+$LANG['LABEL_SYSTEM_LOGS_DEBUG'] = 'Debug loggar';
+$LANG['LABEL_SYSTEM_LOGS_GO'] = 'Visa';
 $LANG['LABEL_SYSTEM_PREFERENCES_AND_SETTINGS'] = 'Systeminställningar och system';
 $LANG["LABEL_SYSTEM_SETTINGS"] = 'Systeminstäällningar';
 // Label T
@@ -257,7 +272,9 @@ $LANG['LABEL_TELEPHONE'] = 'Telefon';
 $LANG['LABEL_TICKET'] = 'Ärende';
 $LANG['LABEL_TICKET_ID'] = 'Ärende-ID';
 $LANG['LABEL_TICKET_NUMBER'] = 'Ärende#';
-$LANG['LABEL_TICKET_STATUS'] = 'Ärendesttus';
+$LANG['LABEL_TICKET_STATUS'] = 'Ärendestatus';
+$LANG['LABEL_TICKET_SOURCE'] = 'Kontaktsätt';
+$LANG['LABEL_TIME_FORMAT'] = 'Tidsformat';
 $LANG['LABEL_TO'] = 'Till.';
 $LANG['LABEL_TOGGLE'] = 'Växla';
 $LANG['LABEL_TRANSFER'] = 'Överföring';
@@ -308,6 +325,7 @@ $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='För många inloggningsförsö
 // TEXT F
 $LANG['TEXT_FILE_REJECTED'] = 'Filen [ {0} ] kunde inte laddas upp';
 $LANG['TEXT_FILE_IS_TOO_BIG'] = 'Filen är för stor. Max {0} bytes är tillåtet';
+$LANG['TEXT_FOR_SUPPORTED_PARAMETERS'] = 'för rätta parameter';
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO']='Forgot your login info? Please <a href="open.php">open a new ticket</a>.';
 // TEXT G
 $LANG['TEXT_GENERAL_INQUIRY'] = 'General Inquiry';
@@ -338,8 +356,9 @@ $LANG['TEXT_NOT_THIS_USER'] = 'Jag är inte denna användaren';
 $LANG['TEXT_NEW_TICKET_AUTO_RESPONSE'] = 'Ett e-postmeddelande med ärendets nummer har skickats till <b>{0}</b>.Du behöver ärendets nummer och din e-postadress för att följa ärendet online..<br><br>Om du vill skicka ytterligare information eller kommentarer angående samma ärende följ instruktionerna i meddelandet.';
 $LANG['TEXT_NO_TICKETS_FOUND']='Inga ärenden hittades.';
 // TEXT O
+$LANG['TEXT_OBSERVE_DAYLIGHT_SAVINGS'] = 'Systemet skall ha överseende med sommartidsskiftningar';
 $LANG['TEXT_OPEN_NEW_TICKET'] = 'Öppna nytt ärende';
-$LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Kontrollera status på ett tidigare öppet ärende. Vi behåller arkiv och historik över alla dina ärenden.';
+$LANG['TEXT_OPEN_PREVIOUS_TICKET'] = 'Kontrollera status på ett tidigare öppet ärende. Vi behåller arkiv och historik över alla dina ärenden.';
 $LANG['TEXT_OPEN_TICKETS'] = 'Öppna ärenden';
 $LANG['TEXT_OPEN'] = 'Öppna';
 $LANG['TEXT_OVERDUE_STATS'] = 'Försenade ({0})';
@@ -358,6 +377,8 @@ $LANG['TEXT_POST_REPLY']='Skicka svar';
 $LANG['TEXT_PLEASE_FILL_STAFF_FORM_BELOW_OPEN_NEW_TICKET'] = 'Fyll i formuläret nedan för att rapportera ett nytt ärende.';
 $LANG['TEXT_PLEASE_FILL_FORM_NEW_TICKET'] = 'Fyll i formuläret nedan för att rapportera ett nytt ärende.';
 $LANG['TEXT_PLEASE_TAKE_A_MINUTE_TO_DELETE_INSTALL'] = 'Please take a minute to delete <strong>setup/install</strong> directory for security reasons.';
+$LANG['TEXT_PLEASE_REFER_TO'] = 'Besök';
+$LANG['TEXT_PHP_MANUAL'] = 'PHP Manualen';
 $LANG['TEXT_PRIORITY_CHANGED_SUCCESSFULLY'] = 'Prioriteten ändrades';
 // TEXT Q
 // TEXT R
@@ -430,6 +451,6 @@ $LANG['TITLE_BOX_NEW_TICKET'] = 'Nytt ärende';
 $LANG['TITLE_BAR_OFFLINE'] = 'Ärendehanteringssystem';
 $LANG['TITLE_MY_PREFERENCES'] = 'Mina inställningar';
 $LANG['TITLE_OFFLINE'] = 'Ärendehanteringssystemet är offline';
-$LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Öppna föregående ärende';
+$LANG['TITLE_OPEN_PREVIOUS_TICKET'] = 'Öppna föregående ärende';
 $LANG['TITLE_CLOSED_TICKETS'] = 'Stängda ärenden';
 ?>
