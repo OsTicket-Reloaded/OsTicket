@@ -39,8 +39,8 @@ define('CONFIGFILE','../include/ost-config.php'); //osTicket config file full pa
 define('SCHEMAFILE','./inc/osticket-v1.6.sql'); //osTicket SQL schema.
 define('URL',rtrim('http'.(($_SERVER['HTTPS']=='on')?'s':'').'://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']),'setup'));
 
-$install='<strong>Need help?</strong> <a href="http://www.osticket.com/support/" target="_blank">Professional Installation Available</a>';
-$support='<strong>Get a peace of mind</strong> <a href="http://www.osticket.com/support/" target="_blank">Commercial Support Available</a>';
+$install='<strong>Need help?</strong> <a href="http://carlosdelfino.eti.br" target="_blank">Professional Installation Available</a>';
+$support='<strong>Get a peace of mind</strong> <a href="http://carlosdelfino.eti.br" target="_blank">Commercial Support Available</a>';
 
 //Basic checks 
 $inc='install.inc.php';
@@ -187,7 +187,7 @@ if(file_exists('../ostconfig.php') || file_exists('../include/settings.php')) { 
                     mysql_query($sql);
                     //Create a ticket to make the system warm and happy.
                     $sql='INSERT INTO '.PREFIX.'ticket SET created=NOW(),ticketID='.db_input(Misc::randNumber(6)).
-                        ",priority_id=2,dept_id=1,email='support@osticket.com',name='osTicket Support' ".
+                        ",priority_id=2,dept_id=1,email='consultoria@carlosdelfino.eti.br',name='osTicket Support' ".
                         ",subject='osTicket Installed!',helptopic='Commercial support',status='open',source='Web'";
                     if(db_query($sql) && ($id=db_insert_id())){
                         db_query('INSERT INTO '.PREFIX."ticket_message VALUES (1,$id,NULL,".db_input(OSTICKET_INSTALLED).",NULL,'Web','',NOW(),NULL)");

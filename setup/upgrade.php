@@ -37,7 +37,7 @@ define('VERSION','1.6 ST'); //Current version number
 define('SCHEMAFILE','./inc/v16rc5.sql'); //osTicket upgrade SQL schema.
 define('PREFIX',TABLE_PREFIX);
 
-$info='<strong>Need help?</strong> <a href="http://www.osticket.com/support/" target="_blank">Don\'t panic - Professional Upgrade Available!</a>';
+$info='<strong>Need help?</strong> <a href="http://carlosdelfino.eti.br" target="_blank">Don\'t panic - Professional Upgrade Available!</a>';
 //Basic checks 
 $inc='upgrade.inc.php';
 if(!strcasecmp($cfg->getVersion(),VERSION)) {
@@ -186,7 +186,7 @@ if(!strcasecmp($cfg->getVersion(),VERSION)) {
             //Create a ticket
             $sql='INSERT INTO '.PREFIX.'ticket SET created=NOW(),ticketID='.db_input(Misc::randNumber(6)).
              ',dept_id='.db_input($deptId?$deptId:$cfg->getDefaultDeptId()).
-                 ",priority_id=2,email='support@osticket.com',name='osTicket Support' ".
+                 ",priority_id=2,email='consultoria@carlosdelfino.eti.br',name='osTicket Support' ".
              ",subject='osTicket Upgraded!',helptopic='osTicket Support',status='open',source='Web'";
             
             if(db_query($sql) && ($id=db_insert_id())){

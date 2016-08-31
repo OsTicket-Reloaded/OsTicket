@@ -75,7 +75,7 @@ Please make sure you join the osTicket forums at http://osticket.com/forums to s
 
 If you are looking for a greater level of support, we provide professional services and commercial support with guaranteed response times, and access to the core development team. We can also help customize osTicket or even add new features to the system to meet your unique needs.
 
-For more information or to discuss your needs, please contact us today at http://osticket.com/support/. Your feedback is greatly appreciated!
+For more information or to discuss your needs, please contact us today at http://carlosdelfino.eti.br. Your feedback is greatly appreciated!
 
 - The osTicket Team";
 $msg1 = ob_get_contents();

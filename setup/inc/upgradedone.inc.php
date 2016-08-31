@@ -22,6 +22,6 @@ Please take a minute to cleanup!
 </ul>
 <h3>Commercial Support Available</h3>
 <p>Don't let technical problems impact your customer support experience. Get guaranteed response times and access to the core development team.
-We can also customize the system to meet your unique needs. For more information or to discuss your needs, please <a href="http://osticket.com/support/contact.php" target="_blank">contact us today</a></p>
+We can also customize the system to meet your unique needs. For more information or to discuss your needs, please <a href="http://carlosdelfino.eti.br" target="_blank">contact us today</a></p>
 
 <p>Thank you for choosing osTicket and best of luck.<br><br>osTicket Team.</p>
