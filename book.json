@@ -1,13 +1,16 @@
 {
     "root": "docs",
     "title": "OsTicket Reload - User Manual",
-    "structure":{
-       "readme": "readme.md",
-       "summary": "summary.md"
+    "structure": {
+        "readme": "readme.md",
+        "summary": "summary.md"
     },
     "plugins": [
         "disqus",
-        "layout"
+        "layout",
+        "anchor-navigation",
+        "anchors",
+        "page-toc"
     ],
     "links": {
         "sidebar": {
@@ -18,6 +21,10 @@
         "disqus": {
             "shortName": "osticket",
             "useIdentifier": true
+        },
+        "page-toc": {
+            "selector": ".markdown-section h2, .markdown-section h3, .markdown-section h4",
+            "position": "before-first"
         }
     }
 }

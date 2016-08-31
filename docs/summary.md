@@ -14,5 +14,5 @@
 
 ## [Instalação](install.md)
 
-* [Copie o Repositório](install.md#{{ "Copie o Repositório" | cgi_escape }})
+* [Copie o Repositório](install.md#Copie%20o%20Reposit%C3%B3rio)
 
