@@ -2,7 +2,7 @@
     "root": "docs",
     "title": "OsTicket Reload - User Manual",
     "structure":{
-       "readme": "readme.md"
+       "readme": "readme.md",
        "summary": "summary.md"
     },
     "plugins": [
