@@ -1,0 +1,21 @@
+{
+
+ "root": "./docs",
+
+ "title": "OsTicket Reload User Manual",
+
+ "plugins": ["disqus"],
+
+ "links": {
+
+ "sidebar": {
+
+ "Contact us / Support": "https://carlosdelfino.eti.br"
+
+ }
+
+ },
+
+ "pluginsConfig": {}
+
+} 
