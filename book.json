@@ -1,21 +1,22 @@
 {
-
- "root": "./docs",
-
- "title": "OsTicket Reload User Manual",
-
- "plugins": ["disqus"],
-
- "links": {
-
- "sidebar": {
-
- "Contact us / Support": "https://carlosdelfino.eti.br"
-
- }
-
- },
-
- "pluginsConfig": {}
-
-} 
+    "root": "docs",
+    "title": "OsTicket Reload User Manual",
+    "structure":{
+       "summary": "summary.md"
+	}
+    "plugins": [
+        "disqus",
+        "layout"
+    ],
+    "links": {
+        "sidebar": {
+            "Contact us / Support": "https://carlosdelfino.eti.br"
+        }
+    },
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "osticket",
+            "useIdentifier": true
+        }
+    }
+}
