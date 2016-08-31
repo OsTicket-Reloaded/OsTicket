@@ -3,6 +3,7 @@
     "title": "OsTicket Reload User Manual",
     "structure":{
        "summary": "summary.md"
+    ),
     "plugins": [
         "disqus",
         "layout"
