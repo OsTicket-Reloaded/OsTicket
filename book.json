@@ -10,11 +10,12 @@
         "layout",
         "anchor-navigation",
         "anchors",
+		"toc",
         "page-toc"
     ],
     "links": {
         "sidebar": {
-            "Contact us / Support": "https://carlosdelfino.eti.br"
+            "Site": "http://carlosdelfino.eti.br"
         }
     },
     "pluginsConfig": {
