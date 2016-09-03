@@ -1,7 +1,5 @@
 # Summary
 
-## OSTicket Reload
-
 * [Introdução](readme.md)
 
 ## Visão do Cliente
