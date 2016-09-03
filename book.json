@@ -1,6 +1,7 @@
 {
     "root": "docs",
     "title": "OsTicket Reload - User Manual",
+    "language": "pt",
     "plugins": [
         "disqus",
         "layout",
