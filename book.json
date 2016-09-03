@@ -1,10 +1,6 @@
 {
     "root": "docs",
     "title": "OsTicket Reload - User Manual",
-    "structure": {
-        "readme": "readme.md",
-        "summary": "summary.md"
-    },
     "plugins": [
         "disqus",
         "layout",
