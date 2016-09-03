@@ -1,7 +1,11 @@
 {
     "root": "docs",
     "title": "OsTicket Reload - User Manual",
-    "language": "pt",
+    "language": "pt",    
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:OsTicket-Reloaded/OsTicket.git"
+    },
     "plugins": [
         "disqus",
         "layout",
