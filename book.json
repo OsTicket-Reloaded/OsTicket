@@ -91,14 +91,6 @@
 
  },
 
- "bulk-redirect": {
-
- "basepath": "/",
-
- "redirectsFile": "redirects.json"
-
- },
-
  "ga": {
 
  "token": "UA-21710445-1",
