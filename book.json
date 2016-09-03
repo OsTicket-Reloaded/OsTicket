@@ -15,12 +15,12 @@
     ],
     "links": {
         "sidebar": {
-            "Site": "http://carlosdelfino.eti.br"
+            "Site": "osticket-reloaded.github.io"
         }
     },
     "pluginsConfig": {
         "disqus": {
-            "shortName": "osticket",
+            "shortName": "osticket-reload",
             "useIdentifier": true
         },
         "page-toc": {
