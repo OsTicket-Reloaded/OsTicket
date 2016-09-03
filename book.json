@@ -1,0 +1,206 @@
+{
+"root": "docs",
+
+ "plugins": [
+
+ "richquotes",
+
+ "anchors",
+
+ "disqus",
+
+ "extend-default-theme",
+
+ "search",
+
+ "exercises",
+
+ "image-captions",
+
+ "gist",
+
+ "katex",
+
+ "indexes",
+
+ "customtheme",
+
+ "theme-api",
+
+ "theme-default",
+
+ "highlight",
+
+ "bulk-redirect",
+
+ "exercises",
+
+ "zingchart",
+
+ "quiz",
+
+ "quizzes",
+
+ "codepen",
+
+ "jsfiddle",
+
+ "gist",
+
+ "ace",
+
+ "chart",
+
+ "codesnippet",
+
+ "include-codeblock",
+
+ "ga",
+
+ "wabtheme",
+
+ "page-toc"
+
+ ],
+
+ "pluginsConfig": {
+
+ "disqus": {
+
+ "shortName": "introduoalinguagemdeprogramaoparaarduino",
+
+ "useIdentifier": true
+
+ },
+
+ "page-toc": {
+
+ "selector": " .markdown-section h2, .markdown-section h3, .markdown-section h4",
+
+ "position": "top"
+
+ },
+
+ "layout": {
+
+ "headerPath": "layouts/header.html",
+
+ "footerPath": "layouts/footer.html"
+
+ },
+
+ "richquotes": {
+
+ "default": true
+
+ },
+
+ "bulk-redirect": {
+
+ "basepath": "/",
+
+ "redirectsFile": "redirects.json"
+
+ },
+
+ "ga": {
+
+ "token": "UA-21710445-1",
+
+ "configuration": "auto"
+
+ },
+
+ "sharing": {
+
+ "facebook": true,
+
+ "twitter": true,
+
+ "google": true,
+
+ "weibo": false,
+
+ "instapaper": true,
+
+ "vk": false,
+
+ "all": [
+
+ "facebook",
+
+ "google",
+
+ "twitter",
+
+ "weibo",
+
+ "instapaper",
+
+ "vk"
+
+ ]
+
+ },
+
+ "image-captions": {
+
+ "caption": "Imagem _PAGE_LEVEL_._PAGE_IMAGE_NUMBER_ - _CAPTION_",
+
+ "list_caption": "Lista de Imagens _BOOK_IMAGE_NUMBER_: _CAPTION_",
+
+ "variable_name": "picturesList",
+
+ "Images": {
+
+ "1.1.1": {
+
+ "skip": "true"
+
+ }
+
+ }
+
+ }
+
+ },
+
+ "structure": {
+
+ "readme": "introducao.md",
+
+ "glossary": "glossario.md",
+
+ "summary": "sumario.md"
+
+ },
+
+ "variables": {
+
+ "Version": "0.1"
+
+ },
+
+ "title": "OsTicket - Reload - User Manual",
+
+ "language": "pt",
+
+ "styles": {
+
+ "website": "styles/website.css", "ebook": "styles/ebook.css", "pdf": "styles/pdf.css", "mobi": "styles/ebook.css", "epub": "styles/ebook.css" },
+
+ "links": {
+
+ "sidebar": {
+
+ "Site": "https://osticket-reloaded.github.io/",
+
+ "suporte": "mailto:consultoria@carlosdelfino.eti.br?subject='Solicito Suporte para OsTicket Reload'"
+
+ }
+
+ }
+
+
+
+}
