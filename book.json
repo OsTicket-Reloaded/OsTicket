@@ -11,9 +11,7 @@
 
  "extend-default-theme",
 
- "search",
-
- "exercises",
+ "search"
 
  "image-captions",
 
@@ -29,9 +27,7 @@
 
  "theme-default",
 
- "highlight",
-
- "bulk-redirect",
+ "highlight"
 
  "exercises",
 
@@ -67,7 +63,7 @@
 
  "disqus": {
 
- "shortName": "introduoalinguagemdeprogramaoparaarduino",
+ "shortName": "osticket-reload",
 
  "useIdentifier": true
 
